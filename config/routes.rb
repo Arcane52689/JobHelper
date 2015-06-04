@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get "/auth/:provider/callback", to: "sessions#omniauth"
   resource :session, only: [:new, :destroy]
+  resources :profiles, :new, :create, :update, :show
 end

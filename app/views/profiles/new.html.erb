@@ -1,0 +1,24 @@
+<script type="text/javascript">
+    function getContent(){
+        // document.getElementById("my-textarea").value = document.getElementById("my-content").innerHTML;
+        var html = document.getElementById("my-content").innerHTML
+        console.log(html);
+        $.ajax({
+          url: "<%= profiles_url %>",
+          method: "POST",
+          data: { profile: {
+            cover_letter_template: document.getElementById("my-content").innerHTML
+          }}
+        })
+    }
+
+
+</script>
+
+
+<div id="my-content" contenteditable="true" style="height: 800px; width: 800px;"><a href="page.html">Some</a> Text</div>
+
+<form id="form" onsubmit="return getContent()">
+    <textarea id="my-textarea" style="display:none" name="profile[cover-letter-template]"></textarea>
+    <input type="submit" />
+</form>
