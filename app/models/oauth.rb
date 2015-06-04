@@ -1,7 +1,7 @@
 class Oauth < ActiveRecord::Base
 
   belongs_to :user
-
+  
   validate :unique_provider_uid
 
 

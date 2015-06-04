@@ -5,8 +5,9 @@ class ApplicationController < ActionController::Base
 
   helper_method :logged_in?, :current_user
   def current_user
-    return nil if session[:session_token].ni?
-    @current_user ||= Session.find_by(token: session[:session_token])
+    return nil if session[:session_token].nil?
+    @current_user ||= Session.find_by(token: session[:session_token]).user
+    
   end
 
   def logged_in?
@@ -17,6 +18,7 @@ class ApplicationController < ActionController::Base
     @current_user = user
     @session = user.sessions.create()
     session[:session_token] = @session.token
+
   end
 
 
