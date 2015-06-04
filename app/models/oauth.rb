@@ -16,7 +16,7 @@ class Oauth < ActiveRecord::Base
 
 
   def unique_provider_uid
-    if !Oauth.exists?({ uid: uid, provider: provider})
+    if Oauth.exists?({ uid: uid, provider: provider})
       errors[:provider] << "That account is already in use"
     end
   end

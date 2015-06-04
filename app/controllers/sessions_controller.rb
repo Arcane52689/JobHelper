@@ -9,7 +9,12 @@ class SessionsController < ApplicationController
 
 
   def destroy
+    @session = Session.find_by(token:session[:session_token])
+    @session.destroy!
+    session[:session_token] = nil
+    @current_user = nil
 
+    redirect_to root_url
   end
 
 

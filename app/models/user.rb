@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
 
   has_many :oauths
-
+  has_many :sessions
   def self.find_or_create_by_auth_hash(auth_hash)
     oauth = Oauth.find_by_auth_hash(auth_hash)
     return oauth.user if oauth
@@ -14,11 +14,11 @@ class User < ActiveRecord::Base
 
   def self.create_by_auth_hash(auth_hash)
     user = User.new(username: auth_hash[:info][:nickname])
-    user.oauth.create({
+    user.save!
+    user.oauths.create!({
       provider: auth_hash[:provider],
       uid: auth_hash[:uid]
     })
-    user.save!
     user
   end
 
