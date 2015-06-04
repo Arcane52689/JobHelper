@@ -4,7 +4,7 @@ window.JobHelper = {
   Views: {},
   Routers: {},
   initialize: function() {
-    
+
     Backbone.history.start();
   }
 };
@@ -12,3 +12,6 @@ window.JobHelper = {
 $(document).ready(function(){
   JobHelper.initialize();
 });
+
+
+bv  
