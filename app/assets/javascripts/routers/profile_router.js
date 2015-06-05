@@ -3,7 +3,8 @@ JobHelper.Routers.ProfileRouter = Bacbkone.Router.extend({
     this.$rootEl=options.$rootEl
   },
   routes: {
-    "profiles/new": "newProfile"
+    "profiles/new": "newProfile",
+    "my_profile": "showProfile"
   },
 
 
@@ -12,6 +13,10 @@ JobHelper.Routers.ProfileRouter = Bacbkone.Router.extend({
       model: new JobHelper.Models.Profile()
     })
     this.swapView(view);
+  },
+
+  showProfile: function() {
+    
   }
 
   swapView:function(view) {
