@@ -1,20 +1,20 @@
 
 
-<article class="template">
-
-  <%= profile.get("cover_letter_template") %>
-</article>
 
 <ul class="links">
   <li>
-    LinkedIn Profile: < <a href="<%= profile.get("linkedin") %>"> <%= profile.get("linkedin") %> </a>
+    LinkedIn Profile:  <a href="<%= profile.escape("linkedin") %>"> <%= profile.escape("linkedin") %> </a>
   </li>
 
   <li>
-    Github Page: < <a href="<%= profile.get("github") %>"> <%= profile.get("github") %> </a>
+    Github Page:  <a href="<%= profile.escape("github") %>"> <%= profile.escape("github") %> </a>
   </li>
 
   <li>
-    Personal Site: < <a href="<%= profile.get("personal_site") %>"> <%= profile.get("personal_site") %> </a>
+    Personal Site:  <a href="<%= profile.escape("personal_site") %>"> <%= profile.escape("personal_site") %> </a>
   </li>
 </ul>
+<article class="cover-letter">
+
+  <%= profile.get("cover_letter_template") %>
+</article>

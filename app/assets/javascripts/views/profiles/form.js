@@ -26,7 +26,9 @@ JobHelper.Views.ProfileForm = Backbone.View.extend({
     event.preventDefault();
     var template = this.$("#template").html()
     this.model.set("cover_letter_template", template);
-    this.model.save({}, {
+    var data = this.$el.serializeJSON()
+    debugger
+    this.model.save(data, {
       success: function() {
         Backbone.history.navigate("", {trigger: true})
       }

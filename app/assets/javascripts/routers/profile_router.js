@@ -13,7 +13,6 @@ JobHelper.Routers.ProfileRouter = Backbone.Router.extend({
     view = new JobHelper.Views.ProfileForm({
       model: JobHelper.currentUser.profile()
     })
-    debugger
     this.swapView(view);
   },
 
