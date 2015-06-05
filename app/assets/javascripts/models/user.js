@@ -9,6 +9,14 @@ JobHelper.Models.User = Backbone.Model.extend({
     return this._profile;
   },
 
+  blurbs: function() {
+    if (!this._blurbs) {
+      this._blurbs = new JobHelper.Collections.Blurbs();
+    }
+    return this._blurbs;
+  }
+
+
   parse: function(response) {
     if (response.profile) {
       this.profile().set(response.profile);
@@ -16,6 +24,8 @@ JobHelper.Models.User = Backbone.Model.extend({
     delete response.profile;
     return response;
   }
+
+
 
 
 
