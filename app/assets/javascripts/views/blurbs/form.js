@@ -22,7 +22,7 @@ JobHelper.Views.BlurbForm = Backbone.View.extend({
       success: function() {
         this.close();
         JobHelper.currentUser.blurbs().add(this.model, {merge: true});
-        Backbone.history.navigate("profiles/me", {trigger: true})
+        Backbone.history.navigate("profiles/me", {trigger: true});
       }
     })
   }
