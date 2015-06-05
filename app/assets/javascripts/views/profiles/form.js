@@ -1,6 +1,6 @@
-JobHelper.Views.ProfileForm = Backbone.CompositeView.extend({
+JobHelper.Views.ProfileForm = Backbone.View.extend({
   initialize: function(options) {
-    this.listenTo(this.model,"sync",this.render)
+    this.listenTo(JobHelper.currentUser,"sync",this.render)
   },
 
   className: "profile-form",
@@ -11,11 +11,13 @@ JobHelper.Views.ProfileForm = Backbone.CompositeView.extend({
     "submit": "submit"
   },
 
-  template: JST["profiles/form"]
+  template: JST["profiles/form"],
 
   render: function() {
-     this.$el.html(this.template({}));
-     return this.$el;
+     this.$el.html(this.template({
+       profile: this.model
+     }));
+     return this;
   },
 
 

@@ -1,11 +1,8 @@
 class API::ProfilesController < ApplicationController
 
-  def new
-  end
-
 
   def show
-    
+    @profile = Profile.find(params[:id])
   end
 
   def create

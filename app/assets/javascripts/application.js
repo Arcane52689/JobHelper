@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-
 //= require underscore
 //= require backbone
-//= require job_helper
 //= requite_tree ./utils
+//= require job_helper
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

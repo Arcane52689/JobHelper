@@ -1,5 +1,7 @@
 json.extract! current_user, :id, :username
 
-json.profile do
-  json.partial! "api/profiles/show", profile: @profile
+if @profile
+  json.profile do
+    json.partial! "api/profiles/profile", profile: @profile
+  end
 end

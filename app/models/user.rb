@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_many :oauths
   has_many :sessions
-  has_many :profile
+  has_many :profiles
 
   def self.find_or_create_by_auth_hash(auth_hash)
     oauth = Oauth.find_by_auth_hash(auth_hash)

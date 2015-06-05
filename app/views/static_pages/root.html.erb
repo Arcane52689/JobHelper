@@ -1,8 +1,16 @@
 <h1>Welcome to the Job Helper!</h1>
 
 <% if logged_in? %>
-  <h3> Hello <%= current_user.username %> </h3>
   <%= link_to "Logout", session_url, method: :delete %>
+  <div class="" id="main">
+
+  </div>
+  <script>
+    // $(JobHelper.initialize);
+  </script>
 <% else %>
-  <%= link_to "Log in", new_session_url %>
+  <h1> Sign In with Github </h1>
+
+  <a href="/auth/github"> Click Here </a>
+
 <% end %>
