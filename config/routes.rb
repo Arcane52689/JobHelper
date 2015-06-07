@@ -9,5 +9,6 @@ Rails.application.routes.draw do
     resources :profiles, only: [:create, :show, :update]
     resources :users, only: [:show]
     resources :blurbs, only: [:create, :destroy, :show, :index]
+    resources :companies, only: [:create, :show, :index]
   end
 end
