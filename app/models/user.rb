@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :profiles
 
   has_many :blurbs
-  
+
   def self.find_or_create_by_auth_hash(auth_hash)
     oauth = Oauth.find_by_auth_hash(auth_hash)
     return oauth.user if oauth

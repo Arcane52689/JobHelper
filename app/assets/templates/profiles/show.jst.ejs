@@ -1,6 +1,11 @@
-
-
-
+<h2> My blurbs</h2> <button class="new-blurb">New Blurb </button>
+<ul class="blurbs">
+  <% blurbs.each(function(blurb) {  %>
+    <% debugger %>
+    <li> <a href=""><%= blurb.get("title") %></a> </li>
+  <% }) %>
+</ul>
+<h2>My links</h2>
 <ul class="links">
   <li>
     LinkedIn Profile:  <a href="<%= profile.escape("linkedin") %>"> <%= profile.escape("linkedin") %> </a>

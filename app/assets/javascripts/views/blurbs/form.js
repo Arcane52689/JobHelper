@@ -5,25 +5,35 @@ JobHelper.Views.BlurbForm = Backbone.View.extend({
 
   tagName: "form",
 
+  className: "blurb-form",
+
   events: {
-    "submit"
+    "submit": "submit"
   },
 
   template: JST["blurbs/form"],
 
   render: function() {
-     this.$el.html(this.template({}));
+     this.$el.html(this.template({
+       blurb: this.model
+     }));
      return this;
   },
 
-  submit: function() {
+  submit: function(event) {
+    event.preventDefault();
     var data = this.$el.serializeJSON();
     this.model.save(data, {
       success: function() {
         this.close();
         JobHelper.currentUser.blurbs().add(this.model, {merge: true});
         Backbone.history.navigate("profiles/me", {trigger: true});
-      }
+      }.bind(this)
     })
+  },
+
+  close: function() {
+
+    this.remove();
   }
 })

@@ -4,13 +4,22 @@ JobHelper.Views.ProfileShow = Backbone.CompositeView.extend({
   },
 
   events: {
-
+    "click .new-blurb": "newBlurb"
   },
 
   template: JST["profiles/show"],
 
   render: function() {
-     this.$el.html(this.template({ profile: this.model }));
+     this.$el.html(this.template({
+       profile: this.model,
+       blurbs: JobHelper.currentUser.blurbs()
+
+     }));
      return this;
   },
+
+  newBlurb: function(event) {
+    event.preventDefault();
+    JobHelper.PopUps.newBlurb();
+  }
 })

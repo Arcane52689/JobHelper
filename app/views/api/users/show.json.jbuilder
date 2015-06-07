@@ -5,3 +5,9 @@ if @profile
     json.partial! "api/profiles/profile", profile: @profile
   end
 end
+
+if @blurbs
+  json.blurbs do
+    json.partial! "api/blurbs/blurb", collection: @blurbs, as: :blurb
+  end
+end
