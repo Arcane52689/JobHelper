@@ -22,7 +22,7 @@ class Api::CompaniesController < ApplicationController
   end
 
   def index
-    @companies = Company.all
+    @companies = Company.all.order(:name).page(params[:page])
   end
 
 

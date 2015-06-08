@@ -7,6 +7,8 @@ JobHelper.Views.CompanyForm = Backbone.CompositeView.extend({
     "submit":"submit"
   },
 
+  tagName: 'form',
+
   template: JST["companies/form"],
 
   render: function() {
@@ -16,10 +18,11 @@ JobHelper.Views.CompanyForm = Backbone.CompositeView.extend({
      return this;
   },
 
-  sumbit: function(event) {
+  submit: function(event) {
+
     event.preventDefault();
     var data = this.$el.serializeJSON();
-    this.save(data, {
+    this.model.save(data, {
       success: function() {
         JobHelper.companies.add(this.model);
         Backbone.history.navigate("companies/"+this.model.get(id), {trigger: true});

@@ -7,20 +7,31 @@ window.JobHelper = {
   Routers: {},
 
   initialize: function() {
-    this.currentUser = new JobHelper.Models.User();
-    this.currentUser.fetch();
-
+    this.fetchData();
+    $main = $("#main")
     this.baseRouter = new JobHelper.Routers.BaseRouter({
-      $rootEl: $("#main")
+      $rootEl: $main
     });
 
     this.profileRouter = new JobHelper.Routers.ProfileRouter({
-      $rootEl: $("#main")
+      $rootEl: $main
+    })
+
+    this.companyRouter = new JobHelper.Routers.CompaniesRouter({
+      $rootEl: $main
     })
     Backbone.history.start();
 
 
   },
+
+  fetchData: function() {
+    this.currentUser = new JobHelper.Models.User();
+    this.currentUser.fetch();
+
+    this.companies = new JobHelper.Collections.Companies();
+  }
+
 
 };
 //
