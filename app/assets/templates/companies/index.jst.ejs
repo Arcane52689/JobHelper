@@ -1,0 +1,13 @@
+<h1> All the Companies  </h1>
+<br>
+<a href="#companies/new">Add a company</a>
+<br>
+<h3> page <%= companies.searchData.page %> of <%= companies.total_pages %> </h3>
+
+<ul>
+  <% companies.each(function(company) {%>
+    <li>
+      <a href="#companies/<%=company.id%>"> <%= company.escape("name") %></a>
+    </li>
+  <% }) %>
+</ul>

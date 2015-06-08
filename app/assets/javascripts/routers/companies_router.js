@@ -4,15 +4,18 @@ JobHelper.Routers.CompaniesRouter = Backbone.Router.extend({
   },
   routes: {
     "companies/new": "newCompany",
-    "companies": "CompaniesIndex"
+    "companies": "companiesIndex"
   },
 
   companiesIndex: function() {
-    
+    var view = new JobHelper.Views.CompaniesIndex({
+      collection: JobHelper.companies
+    });
+    this.swapView(view);
   },
 
   newCompany: function() {
-    view = new JobHelper.Views.CompanyForm({
+    var view = new JobHelper.Views.CompanyForm({
       model: new JobHelper.Models.Company()
     });
     this.swapView(view);
