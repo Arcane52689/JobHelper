@@ -1,0 +1,31 @@
+<h1> <%=company.escape("name") %></h1>
+
+<ul class="links">
+  <li>
+    <label>Jobs Site:
+      <a href="<%= company.escape("jobs_site") %>"><%= company.escape("jobs_site") %> </a></label>
+    <button class="edit" data-class="jobs_site">edit </button>
+    <input class="jobs_site inactive"
+      type="text"
+      name="company[jobs_site]"
+      value="<%=company.escape("jobs_site")%>">
+  </li>
+  <li>
+    <label>Company Website:
+      <a href="<%= company.escape("website") %>"><%= company.escape("website") %> </a></label>
+    <button class="edit" data-class="website">edit </button>
+      <input class="website inactive"
+        type="text"
+        name="company[website]"
+        value="<%=company.escape("website")%>">
+  </li>
+  <li>
+    <label>Contact email: <%= company.escape("contact") %> </label>
+    <button class="edit" data-class="contact">edit </button>
+      <input class="contact inactive"
+        type="text"
+        name="company[contact]"
+        value="<%=company.escape("contact")%>">
+
+  </li>
+</ul>

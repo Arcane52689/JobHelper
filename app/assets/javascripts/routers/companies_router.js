@@ -4,7 +4,8 @@ JobHelper.Routers.CompaniesRouter = Backbone.Router.extend({
   },
   routes: {
     "companies/new": "newCompany",
-    "companies": "companiesIndex"
+    "companies": "companiesIndex",
+    "companies/:id": "showCompany"
   },
 
   companiesIndex: function() {
@@ -21,6 +22,13 @@ JobHelper.Routers.CompaniesRouter = Backbone.Router.extend({
     this.swapView(view);
   },
 
+  showCompany: function(id) {
+
+    var view = new JobHelper.Views.CompanyShow({
+      model: JobHelper.companies.getOrFetch(id)
+    })
+    this.swapView(view);
+  },
 
   swapView:function(view) {
     if (this.currentView) {
