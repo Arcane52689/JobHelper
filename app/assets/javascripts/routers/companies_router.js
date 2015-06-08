@@ -8,7 +8,7 @@ JobHelper.Routers.CompaniesRouter = Backbone.Router.extend({
   },
 
   companiesIndex: function() {
-
+    
   },
 
   newCompany: function() {

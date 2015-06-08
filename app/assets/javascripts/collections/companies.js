@@ -2,11 +2,11 @@ JobHelper.Collections.Companies = Backbone.Collection.extend({
   initialize: function() {
     this.searchData = {
       page: 1,
-      name=""
+      name: ""
     }
-  }
+  },
 
-  url: "api/collections",
+  url: "api/companies",
   model: JobHelper.Models.Company,
 
   getOrFetch: function(id) {
@@ -28,10 +28,19 @@ JobHelper.Collections.Companies = Backbone.Collection.extend({
       delete response.total_pages
     }
     return response.companies
-  }
+  },
 
   nextPage: function() {
-    if
-    this.searchData.page += 1;
+    if (this.total_pages > this.searchData.page) {
+      this.searchData.page += 1;
+      this.grabData();
+    }
+  },
+
+  prevPage: function() {
+    if (this.searchData.page > 1) {
+      this.searchData.page -= 1;
+      this.grabData();
+    }
   }
 })
