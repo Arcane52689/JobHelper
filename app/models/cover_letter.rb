@@ -12,8 +12,7 @@ class CoverLetter < ActiveRecord::Base
 
 
   def generate_text
-    template.gsub("[company blurb]")
-
+    template.gsub("[blurb]", blurb.body).gsub("[company name]", company.name)
   end
 
 end
