@@ -29,6 +29,9 @@ JobHelper.Views.MyBlurbs = Backbone.CompositeView.extend({
       callback: this.editBlurb.bind(this)
     });
     this.addSubview("#blurb-show",this._showView);
+    if (this._formView) {
+      this._formView.remove();
+    }
   },
 
 

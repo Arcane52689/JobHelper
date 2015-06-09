@@ -2,6 +2,8 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   before_save :add_http
 
+  has_many :cover_letters
+
   LINKS = [
     :github,
     :personal_site,

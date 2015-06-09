@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-
+  has_many :cover_letters
   has_many :oauths
   has_many :sessions
   has_many :profiles

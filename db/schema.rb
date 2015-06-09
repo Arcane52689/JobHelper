@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150607202232) do
+ActiveRecord::Schema.define(version: 20150609130611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(version: 20150607202232) do
   end
 
   add_index "companies", ["name"], name: "index_companies_on_name", using: :btree
+
+  create_table "cover_letters", force: :cascade do |t|
+    t.integer  "company_id"
+    t.integer  "blurb_id"
+    t.integer  "profile_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "cover_letters", ["blurb_id"], name: "index_cover_letters_on_blurb_id", using: :btree
+  add_index "cover_letters", ["company_id"], name: "index_cover_letters_on_company_id", using: :btree
+  add_index "cover_letters", ["profile_id"], name: "index_cover_letters_on_profile_id", using: :btree
+  add_index "cover_letters", ["user_id"], name: "index_cover_letters_on_user_id", using: :btree
 
   create_table "oauths", force: :cascade do |t|
     t.integer  "user_id"
@@ -79,6 +93,10 @@ ActiveRecord::Schema.define(version: 20150607202232) do
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   add_foreign_key "blurbs", "users"
+  add_foreign_key "cover_letters", "blurbs"
+  add_foreign_key "cover_letters", "companies"
+  add_foreign_key "cover_letters", "profiles"
+  add_foreign_key "cover_letters", "users"
   add_foreign_key "oauths", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "sessions", "users"
