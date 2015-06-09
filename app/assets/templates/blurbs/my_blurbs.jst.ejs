@@ -2,11 +2,11 @@
 <ul class="sections group">
 
   <li class="blurb-section" id="blurb-list">
-    <h1>My Blurbs</h1>
+    <h2> My blurbs</h2> <button class="new-blurb">New Blurb </button>
     <ul>
       <% blurbs.each(function(blurb) { %>
         <li class="blurb" data-id="<%=blurb.get("id")%>">
-          <%= blurb.get(title) %>
+          <%= blurb.get("title") %>
         </li>
       <% }) %>
     </ul>

@@ -14,6 +14,9 @@ class Api::BlurbsController < ApplicationController
     @blurbs = current_user.blurbs
   end
 
+  def show
+    @blurb = Blurb.find(params[:id])
+  end
 
 
 

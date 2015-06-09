@@ -1,4 +1,4 @@
-JobHelper.Views.Blurb.BlurbShow = Backbone.View.extend({
+JobHelper.Views.BlurbShow = Backbone.View.extend({
   initialize: function(options) {
 
   },
