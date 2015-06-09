@@ -25,7 +25,8 @@ JobHelper.Views.MyBlurbs = Backbone.CompositeView.extend({
     var id = $(event.currentTarget).data("id");
     this.currentBlurb = this.collection.getOrFetch(id);
     this._showView = new JobHelper.Views.BlurbShow({
-      model: this.currentBlurb
+      model: this.currentBlurb,
+      callback: this.editBlurb.bind(this)
     });
     this.addSubview("#blurb-show",this._showView);
   },
@@ -43,7 +44,7 @@ JobHelper.Views.MyBlurbs = Backbone.CompositeView.extend({
     this.addSubview("#blurb-form",this._formView);
   },
 
-  editBlurb: function(event, model) {
+  editBlurb: function(event) {
     event.preventDefault();
     if (this._formView) {
       this._formView.remove();
@@ -51,6 +52,6 @@ JobHelper.Views.MyBlurbs = Backbone.CompositeView.extend({
     this._formView = new JobHelper.Views.BlurbForm({
       model: this.currentBlurb
     });
-    this.addSubview("blurb-form",this._formView);
+    this.addSubview("#blurb-form",this._formView);
   }
 })
