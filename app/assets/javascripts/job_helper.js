@@ -15,11 +15,16 @@ window.JobHelper = {
 
     this.profileRouter = new JobHelper.Routers.ProfileRouter({
       $rootEl: $main
-    })
+    });
 
     this.companyRouter = new JobHelper.Routers.CompaniesRouter({
       $rootEl: $main
-    })
+    });
+
+    this.coverLetterRouter = new JobHelper.Routers.CoverLettersRouter({
+      $rootEl: $main
+    });
+
     Backbone.history.start();
 
 

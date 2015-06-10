@@ -13,7 +13,7 @@ class Api::CoverLettersController < ApplicationController
     if @letter.save
       render json: @letter
     else
-      render json: @letter.errors.full_messages
+      render json: @letter.errors.full_messages, status: 422
     end
   end
 
@@ -25,12 +25,12 @@ class Api::CoverLettersController < ApplicationController
       rendr json: @letter.erros.full_messages
     end
   end
-  
+
 
 
 
   def cover_letter_params
-    params.require(:cover_letter).permit(:profile_id, :company_id, :blurb_id)
+    params.require(:cover_letter).permit(:profile_id, :company_id, :blurb_id, :body)
   end
 
 end

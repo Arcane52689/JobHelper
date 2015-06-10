@@ -20,8 +20,8 @@ JobHelper.Models.User = Backbone.Model.extend({
     if (!this._coverLetters) {
       this._coverLetters = new JobHelper.Collections.CoverLetters();
     }
-    return this._coverLetters();
-  }
+    return this._coverLetters;
+  },
 
 
   parse: function(response) {

@@ -6,14 +6,6 @@ class CoverLetter < ActiveRecord::Base
 
   validates :company_id, :user_id, :profile_id, :blurb_id, presence: true
 
-  def template
-    profile.cover_letter_template
-  end
-
-
-  def generate_text
-    template.gsub("[blurb]", blurb.body).gsub("[company name]", company.name)
-  end
 
 
 

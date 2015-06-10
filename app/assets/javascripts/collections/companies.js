@@ -22,13 +22,7 @@ JobHelper.Collections.Companies = Backbone.Collection.extend({
     this.fetch({data: this.searchData })
   },
 
-  parse: function(response) {
-    if (response.total_pages) {
-      this.total_pages = response.total_pages;
-      delete response.total_pages
-    }
-    return response.companies
-  },
+
 
   nextPage: function() {
     if (this.total_pages > this.searchData.page) {

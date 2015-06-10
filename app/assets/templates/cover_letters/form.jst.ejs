@@ -1,5 +1,5 @@
 
-
+<label for="">Select the company
 <select class="dropdown" id="companies" name="cover_letter[company_id]">
 <% companies.each(function(company){%>
   <option value="<%=company.get("id")%>"
@@ -11,16 +11,27 @@
   </option>
 <% }) %>
 </select>
+</label>
 
-
+<label for="">Select your blurb
 <select class="dropdwon" name="cover_letter[blurb_id]"  id="blurbs">
+
   <% blurbs.each(function(blurb) { %>
     <option value="<%=blurb.get("id")%>"
       <% if (blurb.get("id") == letter.get("blurb_id")) { %>
         selected
       <% } %>
       >
-      <%= blurb.escape("name") %>
+      <%= blurb.escape("title") %>
     </option>
   <%  }) %>
 </select>
+</label>
+
+
+<article id="preview" contentEditable=true>
+
+
+</article>
+
+<input type="submit" value="Create Cover Letter">
