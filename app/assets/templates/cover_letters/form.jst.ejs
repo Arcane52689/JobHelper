@@ -1,0 +1,26 @@
+
+
+<select class="dropdown" id="companies" name="cover_letter[company_id]">
+<% companies.each(function(company){%>
+  <option value="<%=company.get("id")%>"
+    <% if (company.get("id") == letter.get("company_id")) { %>
+      selected
+    <% } %>
+    >
+    <%= company.escape("name") %>
+  </option>
+<% }) %>
+</select>
+
+
+<select class="dropdwon" name="cover_letter[blurb_id]"  id="blurbs">
+  <% blurbs.each(function(blurb) { %>
+    <option value="<%=blurb.get("id")%>"
+      <% if (blurb.get("id") == letter.get("blurb_id")) { %>
+        selected
+      <% } %>
+      >
+      <%= blurb.escape("name") %>
+    </option>
+  <%  }) %>
+</select>

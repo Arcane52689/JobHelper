@@ -16,6 +16,13 @@ JobHelper.Models.User = Backbone.Model.extend({
     return this._blurbs;
   },
 
+  coverLetters: function() {
+    if (!this._coverLetters) {
+      this._coverLetters = new JobHelper.Collections.CoverLetters();
+    }
+    return this._coverLetters();
+  }
+
 
   parse: function(response) {
     if (response.profile) {
@@ -27,7 +34,7 @@ JobHelper.Models.User = Backbone.Model.extend({
       this.blurbs().set(response.blurbs);
       delete response.blurbs;
     }
-    
+
     return response;
   }
 
