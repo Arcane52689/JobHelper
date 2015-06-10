@@ -15,4 +15,6 @@ class CoverLetter < ActiveRecord::Base
     template.gsub("[blurb]", blurb.body).gsub("[company name]", company.name)
   end
 
+
+
 end
