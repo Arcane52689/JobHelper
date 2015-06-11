@@ -6,7 +6,8 @@ class CoverLetter < ActiveRecord::Base
 
   validates :company_id, :user_id, :profile_id, :blurb_id, presence: true
 
-
+  has_attached_file :document
+  validates_attachment :document, content_type: { content_type: "application/pdf"}
 
 
 end

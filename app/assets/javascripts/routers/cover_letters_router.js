@@ -4,12 +4,12 @@ JobHelper.Routers.CoverLettersRouter = Backbone.Router.extend({
   },
   routes: {
     "cover_letters/new/:id": "newCoverLetter",
-    "cover_letters/new": "newCoverLetter"
+    "cover_letters/new": "newCoverLetter",
+    "cover_letters/:id": "showCoverLetter"
 
   },
 
   newCoverLetter: function(id) {
-    debugger
     var letter = new JobHelper.Models.CoverLetter();
     if (id) {
       letter.set("company_id", id);
@@ -20,6 +20,15 @@ JobHelper.Routers.CoverLettersRouter = Backbone.Router.extend({
 
     this.swapView(view);
 
+  },
+
+  showCoverLetter: function(id) {
+    var letter = new JobHelper.Models.CoverLetter({id: id});
+    letter.fetch();
+    var view = new JobHelper.Views.CoverLetterShow({
+      model: letter
+    })
+    this.swapView(view);
   },
 
 
