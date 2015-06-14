@@ -42,7 +42,7 @@ gem "kaminari"
 gem "pdfcrowd"
 
 gem 'omniauth-github'
-gem 'rebay'
+gem 'zeroclipboard-rails'
 
 group :production do
   gem 'rails_12factor'

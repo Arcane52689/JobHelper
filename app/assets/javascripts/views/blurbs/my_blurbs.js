@@ -8,6 +8,10 @@ JobHelper.Views.MyBlurbs = Backbone.CompositeView.extend({
     "click .new-blurb": "newBlurb"
   },
 
+  className: "my-blurbs group",
+
+  tagName: "ul",
+
   template: JST["blurbs/my_blurbs"],
 
   render: function() {

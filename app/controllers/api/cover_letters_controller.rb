@@ -22,7 +22,7 @@ class Api::CoverLettersController < ApplicationController
     if @leter.update(cover_letter_params)
       render json: @letter
     else
-      render json: @letter.erros.full_messages
+      render json: @letter.errors.full_messages
     end
   end
 

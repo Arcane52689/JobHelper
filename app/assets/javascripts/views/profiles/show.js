@@ -4,7 +4,7 @@ JobHelper.Views.ProfileShow = Backbone.CompositeView.extend({
   },
 
   events: {
-
+    "click .show-blurbs ": "toggleBlurbs"
   },
 
   template: JST["profiles/show"],
@@ -28,5 +28,11 @@ JobHelper.Views.ProfileShow = Backbone.CompositeView.extend({
     });
     this.addSubview(".blurbs-container", this._blurbView);
   },
+
+  toggleBlurbs: function(event) {
+    event.preventDefault();
+    $(".blurbs-container").toggle("inactive");
+  },
+
 
 })

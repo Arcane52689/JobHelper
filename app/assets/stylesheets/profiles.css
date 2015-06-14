@@ -2,3 +2,79 @@
   width: 800px;
   margin: auto;
 }
+
+
+
+.show-blurbs {
+  font-weight: 400;
+  border-radius: 5px;
+  margin: auto;
+  display: block;
+  cursor: pointer;
+}
+
+
+.my-blurbs {
+  width: 900px;
+  margin: auto;
+  background: #aaa;
+  border-right: 5px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  text-align: center;
+}
+
+
+.blurb-section {
+  float: left;
+  width: 250px;
+  padding: 10px 20px;
+  border-left: 5px solid black;
+  height: 350px;
+}
+
+#blurb-show p {
+  background: #fff;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: left;
+  padding: 10px;
+  line-height: 1.3;
+}
+
+.blurb-form > textarea {
+  height: 100px;
+  width: 250px;
+  padding: 10px;
+  margin: auto;
+}
+
+.links-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.links-container .links {
+  width: 900px;
+  margin: 20px auto;
+}
+
+.links-container .links li {
+  width: 300px;
+}
+
+
+.links-container .links a {
+  display: inline;
+  text-decoration: underline;
+  color: #00f;
+  padding: 0;
+}
+
+.cover-letter-title {
+  text-align: center;
+  color: #000;
+  display: block;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}

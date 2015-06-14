@@ -1,20 +1,29 @@
-<div class="blurbs-container group">
+<button class="show-blurbs"> My Blurbs</button>
+<div class="blurbs-container group inactive">
 
 </div>
+
+<section class="links-container">
+
 <h2>My links</h2>
-<ul class="links">
+<ul class="links group">
   <li>
-    LinkedIn Profile:  <a href="<%= profile.escape("linkedin") %>"> <%= profile.escape("linkedin") %> </a>
+    <strong> LinkedIn Profile:<br></strong>
+      <a href="<%= profile.escape("linkedin") %>"> <%= profile.escape("linkedin") %> </a>
   </li>
 
   <li>
-    Github Page:  <a href="<%= profile.escape("github") %>"> <%= profile.escape("github") %> </a>
+    <strong> Github Page: <br></strong>
+     <a href="<%= profile.escape("github") %>"> <%= profile.escape("github") %> </a>
   </li>
 
   <li>
-    Personal Site:  <a href="<%= profile.escape("personal_site") %>"> <%= profile.escape("personal_site") %> </a>
+    <strong> Personal Site:<br></strong>
+      <a href="<%= profile.escape("personal_site") %>"> <%= profile.escape("personal_site") %> </a>
   </li>
 </ul>
+</section>
+<h2 class="cover-letter-title"> Cover Letter Template </h2>
 <article class="cover-letter">
 
   <%= profile.get("cover_letter_template") %>

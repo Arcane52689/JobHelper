@@ -25,6 +25,8 @@ window.JobHelper = {
       $rootEl: $main
     });
 
+    this.attachStaticViews();
+
     Backbone.history.start();
 
 
@@ -36,6 +38,12 @@ window.JobHelper = {
 
     this.companies = new JobHelper.Collections.Companies();
     this.companies.grabData();
+  },
+
+
+  attachStaticViews: function() {
+    this.header = new JobHelper.Views.Header();
+    $("#header").html(this.header.render().$el);
   }
 
 

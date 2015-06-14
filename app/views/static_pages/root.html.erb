@@ -1,6 +1,9 @@
-<h1>Welcome to the Job Helper!</h1>
+<h2>Welcome to the Job Helper!</h2>
 
 <% if logged_in? %>
+  <header class="header group" id="header">
+
+  </header>
   <%= link_to "Logout", session_url, method: :delete %>
   <div class="" id="main">
 
@@ -11,7 +14,7 @@
   });
   </script>
 <% else %>
-  <h1> Sign In with Github </h1>
+  <h2> Sign In with Github </h2>
 
   <a href="/auth/github"> Click Here </a>
 
