@@ -19,11 +19,11 @@ class Api::ApplicationsController < ApplicationController
   end
 
   def show
-    @application = current_user.applications.find(params[:id])
+    @application = current_user.applications.includes(:company).find(params[:id])
   end
 
   def index
-    @applications = current_user.applications
+    @applications = current_user.applications.includes(:company)
   end
 
 
