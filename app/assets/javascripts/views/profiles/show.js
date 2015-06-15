@@ -3,6 +3,8 @@ JobHelper.Views.ProfileShow = Backbone.CompositeView.extend({
     this.listenTo(JobHelper.currentUser, "sync", this.render)
   },
 
+  className: "profile-container",
+
   events: {
     "click .show-blurbs ": "toggleBlurbs"
   },

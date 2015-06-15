@@ -10,7 +10,7 @@ JobHelper.Views.CoverLetterShow = Backbone.CompositeView.extend({
   template: JST["cover_letters/show"],
 
   render: function() {
-
+    debugger
     this.$el.html(this.template({
       letter: this.model
     }));

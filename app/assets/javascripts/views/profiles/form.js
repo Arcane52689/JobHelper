@@ -3,7 +3,7 @@ JobHelper.Views.ProfileForm = Backbone.View.extend({
     this.listenTo(JobHelper.currentUser,"sync",this.render)
   },
 
-  className: "profile-form",
+  className: "profile-container",
 
   tagName: "form",
 

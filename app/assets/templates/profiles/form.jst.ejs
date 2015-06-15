@@ -1,6 +1,7 @@
 <h2> Profile </h2>
 
-<ul class="links">
+<section class= "links-container">
+<ul class="links group">
 
   <li>
     <label for="linkedin">
@@ -22,10 +23,10 @@
   </li>
 
 </ul>
+</section>
 
-
-<h3> Your Cover Letter Template </h3>
-<label> Please Copy and Paste your cover letter into the box below </label>
+<h2 class="cover-letter-title"> Your Cover Letter Template </h2>
+<label class="instructions"> Please Copy and Paste your cover letter into the box below </label>
 
 <article class="cover-letter"  contenteditable="true" id="template">
   <%=profile.get("cover_letter_template") %>

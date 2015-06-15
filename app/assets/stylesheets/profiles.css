@@ -78,3 +78,32 @@
   margin-bottom: 20px;
   text-decoration: underline;
 }
+
+.profile-container {
+  position: relative;
+  width: 1000px;
+  margin: auto;
+}
+
+.edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 5px;
+  border: 1px solid black;
+  background: green;
+  color: white;
+  display: block;
+
+
+
+}
+
+
+.links-container input {
+  width: 250px;
+}
+
+.instructions {
+  text-align: center;
+}
