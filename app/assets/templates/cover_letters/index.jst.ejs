@@ -1,0 +1,11 @@
+<h2> Cover Letters </h2>
+
+<ul class="cover-letters">
+  <% letters.each(function(letter) { %>
+    <li>
+      <a href="#cover_letters/<%=letter.get("id")%>">
+        <%= letter.escape("title") %>
+      </a>
+    </li>
+  <% }) %>
+</ul>

@@ -3,6 +3,7 @@ JobHelper.Routers.CoverLettersRouter = Backbone.Router.extend({
     this.$rootEl=options.$rootEl
   },
   routes: {
+    "cover_letters": "index",
     "cover_letters/new/:id": "newCoverLetter",
     "cover_letters/new": "newCoverLetter",
     "cover_letters/:id": "showCoverLetter"
@@ -29,6 +30,13 @@ JobHelper.Routers.CoverLettersRouter = Backbone.Router.extend({
       model: letter
     })
     this.swapView(view);
+  },
+
+  index: function() {
+    var view = new JobHelper.Views.CoverLetterIndex({
+      collection: JobHelper.currentUser.coverLetters()
+    });
+    this.swapView(view)
   },
 
 
