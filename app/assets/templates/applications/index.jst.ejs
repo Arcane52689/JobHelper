@@ -1,0 +1,9 @@
+<h2>My Applications</h2>
+<a href="#applications/new">Add an Application</a>
+<ul class="applications">
+  <% applications.each(function(application) { %>
+    <li>
+      <%= application.escape("title") %>
+    </li>
+  <% }) %>
+</ul>

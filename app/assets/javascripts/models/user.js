@@ -23,6 +23,13 @@ JobHelper.Models.User = Backbone.Model.extend({
     return this._coverLetters;
   },
 
+  applications: function() {
+    if (!this._applications) {
+      this._applications = new JobHelper.Collections.Applications();
+    }
+    return this._applications;
+  },
+
 
   parse: function(response) {
     if (response.profile) {
@@ -33,6 +40,16 @@ JobHelper.Models.User = Backbone.Model.extend({
 
       this.blurbs().set(response.blurbs);
       delete response.blurbs;
+    }
+
+    if (response.cover_letters) {
+      this.coverLetters().set(response.cover_letters);
+      delete response.cover_letters;
+    }
+
+    if (response.applications) {
+      this.applications().set(response.applications);
+      delete response.applications;
     }
 
     return response;

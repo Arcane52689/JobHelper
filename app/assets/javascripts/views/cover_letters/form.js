@@ -3,7 +3,7 @@ JobHelper.Views.CoverLetterForm = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(JobHelper.companies,"sync", this.render);
     this.listenTo(JobHelper.currentUser, "sync",this.render);
-    this.listenTo(JobHelper.companies, "sync",this.wtf);
+
 
   },
 

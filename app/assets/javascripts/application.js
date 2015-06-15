@@ -16,6 +16,7 @@
 //= require underscore
 //= require backbone
 //= requite_tree ./utils
+//= require backbone_composite_view.js
 //= require job_helper
 //= require_tree ../templates
 //= require_tree ./models

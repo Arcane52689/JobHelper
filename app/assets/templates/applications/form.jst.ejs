@@ -1,0 +1,41 @@
+<label>Select the Company you're applying to
+<select class="dropdown" id="companies" name="application[company_id]">
+<% companies.each(function(company){%>
+  <option value="<%=company.get("id")%>"
+    <% if (company.get("id") == application.get("company_id")) { %>
+      selected
+    <% } %>
+    >
+    <%= company.escape("name") %>
+  </option>
+<% }) %>
+</select>
+</label>
+
+<br>
+
+<label>
+  Select your Cover Letter
+  <select class="dropdown" name="application[cover_letter_id]">
+    <% user.coverLetters().each(function(letter){ %>
+      <option value="<%=letter.get("id")%>"
+        <% if (letter.get("id") == application.get("cover_letter_id")) { %>
+          selected
+        <% } %>
+        >
+
+        <%= letter.escape("title") %>
+      </option>
+    <% }) %>
+  </select>
+</label>
+<br>
+
+<label>Job URL:
+<input type="text" name="application[job_url]" value="<%= application.escape("job_url")%>"></label>
+<br>
+<label>Job Title
+<input type="text" name="application[job_title]" value="<%= application.escape("job_title")%>">
+</label>
+
+<input type="submit" value="Submit">

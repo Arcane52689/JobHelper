@@ -9,5 +9,14 @@ class CoverLetter < ActiveRecord::Base
   has_attached_file :document
   validates_attachment :document, content_type: { content_type: "application/pdf"}
 
+  before_save :ensure_title
+
+
+  def ensure_title
+    unless title
+      self.title = "#{company.name}:  #{blurb.title}"
+    end
+  end
+  
 
 end

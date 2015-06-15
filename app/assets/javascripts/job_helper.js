@@ -25,6 +25,10 @@ window.JobHelper = {
       $rootEl: $main
     });
 
+    this.applicationsRouter = new JobHelper.Routers.ApplicationRouter({
+      $rootEl: $main
+    });
+
     this.attachStaticViews();
 
     Backbone.history.start();
