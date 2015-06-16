@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615133523) do
+ActiveRecord::Schema.define(version: 20150616123449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,10 @@ ActiveRecord::Schema.define(version: 20150615133523) do
     t.integer  "company_id"
     t.integer  "cover_letter_id"
     t.string   "job_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "job_title"
+    t.string   "status",          default: "pending"
   end
 
   add_index "applications", ["company_id"], name: "index_applications_on_company_id", using: :btree

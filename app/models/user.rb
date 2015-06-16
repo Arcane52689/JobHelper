@@ -2,14 +2,14 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-  has_many :cover_letters
-  has_many :oauths
-  has_many :sessions
-  has_many :profiles
+  has_many :cover_letters, dependent: :destroy
+  has_many :oauths, dependent: :destroy
+  has_many :sessions, dependent: :destroy
+  has_many :profiles, dependent: :destroy
 
-  has_many :blurbs
-  has_many :cover_letters
-  has_many :applications
+  has_many :blurbs, dependent: :destroy
+  has_many :cover_letters, dependent: :destroy
+  has_many :applications, dependent: :destroy
 
   def self.find_or_create_by_auth_hash(auth_hash)
     oauth = Oauth.find_by_auth_hash(auth_hash)

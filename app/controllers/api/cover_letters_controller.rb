@@ -26,6 +26,12 @@ class Api::CoverLettersController < ApplicationController
     end
   end
 
+  def destroy
+    @letter = current_user.cover_letters.find(params[:id])
+    @letter.destroy!
+    render json: @letter, status: 200
+  end
+
 
   def generate_pdf
     @letter = current_user.cover_letters.find(params[:id])

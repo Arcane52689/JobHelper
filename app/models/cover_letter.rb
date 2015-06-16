@@ -17,6 +17,6 @@ class CoverLetter < ActiveRecord::Base
       self.title = "#{company.name}:  #{blurb.title}"
     end
   end
-  
+
 
 end
