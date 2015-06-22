@@ -1,6 +1,11 @@
 JobHelper.Views.CompanyForm = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.listenTo(this.model,"sync",this.render);
+    if (options) {
+
+      this.modal = options.modal
+      this.callback = options.callback
+    }
   },
 
   events: {
@@ -26,7 +31,17 @@ JobHelper.Views.CompanyForm = Backbone.CompositeView.extend({
       success: function() {
         JobHelper.companies.add(this.model);
         Backbone.history.navigate("companies/"+this.model.get(id), {trigger: true});
+        if (this.modal) {
+          this.close();
+          this.callback && this.callback();
+        }
       }.bind(this)
     })
+  },
+
+  close: function(event) {
+    event && event.preventDefault();
+    this.remove();
+    $("#popup").toggle("inactive");
   }
 })
