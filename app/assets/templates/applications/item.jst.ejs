@@ -1,0 +1,19 @@
+<% statuses = ['pending', 'rejected', 'phone screened', 'interviewed', 'offered', 'offer accepted'] %>
+<label class='name row-item'> <%=app.companyName() %> </label>
+<select class="statuses row-item" id="status">
+  <% _.each(statuses, function(status){ %>
+    <option value="<%=status%>"
+      <% if status === app.get("status") { %>
+        selected
+      <% } %>
+      >
+      <%= status %>
+    </option>
+  <% }) %>
+
+
+</select>
+
+
+<label class='row-item'> <%= app.get('created_at') %> </label>
+<label class='row-item'> <%= app.get('updated_at') %> </label>

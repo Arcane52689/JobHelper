@@ -18,10 +18,6 @@ JobHelper.Collections.Companies = Backbone.Collection.extend({
     return model;
   },
 
-  grabData: function() {
-    this.fetch({data: this.searchData })
-  },
-
 
 
   nextPage: function() {

@@ -41,7 +41,7 @@ window.JobHelper = {
     this.currentUser.fetch();
 
     this.companies = new JobHelper.Collections.Companies();
-    this.companies.grabData();
+    this.companies.fetch();
   },
 
 
