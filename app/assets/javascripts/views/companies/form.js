@@ -30,10 +30,13 @@ JobHelper.Views.CompanyForm = Backbone.CompositeView.extend({
     this.model.save(data, {
       success: function() {
         JobHelper.companies.add(this.model);
-        Backbone.history.navigate("companies/"+this.model.get(id), {trigger: true});
         if (this.modal) {
           this.close();
-          this.callback && this.callback();
+          this.callback && this.callback(this.model);
+        }
+        else{
+          Backbone.history.navigate("companies/"+this.model.get("id"), {trigger: true});
+
         }
       }.bind(this)
     })

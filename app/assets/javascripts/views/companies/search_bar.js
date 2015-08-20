@@ -1,6 +1,9 @@
 JobHelper.Views.CompanySearchBar = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.collection = new JobHelper.Collections.Companies();
+    if (options) {
+      this.callback = options.callback;
+    }
   },
 
   events: {
@@ -62,7 +65,10 @@ JobHelper.Views.CompanySearchBar = Backbone.CompositeView.extend({
 
   addCompany: function(event) {
     event.preventDefault();
-
+    JobHelper.PopUps.addCompany({
+      name: this.$("#search").val(),
+      callback: this.callback
+    })
 
 
   }

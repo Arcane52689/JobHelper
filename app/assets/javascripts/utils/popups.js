@@ -6,12 +6,13 @@ JobHelper.PopUps = {
     $("#main").append(view.render().$el);
   },
 
-  addCompany: function(name, callback) {
-    var company = new JobHelper.Models.company({name: name});
+  addCompany: function(options) {
+    var company = new JobHelper.Models.Company({name: options.name});
+    debugger
     var view = new JobHelper.Views.CompanyForm({
       model: company,
       modal: true,
-      callback: callback
+      callback: options.callback
     });
     $("#popup").toggle("inactive").html(view.render().$el);
   }
