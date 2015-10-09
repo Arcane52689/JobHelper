@@ -1,0 +1,31 @@
+<button class="show-blurbs"> My Blurbs</button>
+<a class="edit" href="#/profiles/edit"> Edit </a>
+<div class="blurbs-container group inactive">
+
+</div>
+
+<section class="links-container">
+
+<h2>My links</h2>
+<ul class="links group">
+  <li>
+    <strong> LinkedIn Profile:<br></strong>
+      <a href="{{portfolio.profile.linkedin}}"> {{ portfolio.profile.linkedin}} </a>
+  </li>
+
+  <li>
+    <strong> Github Page: <br></strong>
+     <a href="{{ portfolio.profile.github }}"> {{ portfolio.profile.github }} </a>
+  </li>
+
+  <li>
+    <strong> Personal Site:<br></strong>
+      <a href="{{portfolio.profile.personalSite}}"> {{ portfolio.profile.personalSite }}</a>
+  </li>
+</ul>
+</section>
+<h2 class="cover-letter-title"> Cover Letter Template </h2>
+<article class="cover-letter">
+
+  {{ portfolio.profile.coverLetterTemplate }}
+</article>
