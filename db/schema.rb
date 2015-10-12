@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820215004) do
+ActiveRecord::Schema.define(version: 20151012220847) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,11 +87,12 @@ ActiveRecord::Schema.define(version: 20150820215004) do
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "cover_letter_template"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "linkedin"
     t.string   "github"
     t.string   "personal_site"
+    t.string   "name",                  default: "Coding"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree

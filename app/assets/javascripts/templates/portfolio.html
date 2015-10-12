@@ -1,8 +1,9 @@
-<button class="show-blurbs"> My Blurbs</button>
-<a class="edit" href="#/profiles/edit"> Edit </a>
-<div class="blurbs-container group inactive">
+<label for="">Profiles: <select class="select profile-select" name="profile" ng-model="portfolio.profile" ng-options="profile as profile.name for profile in portfolio.profiles">
 
-</div>
+</select></label>
+
+
+
 
 <section class="links-container">
 
@@ -25,6 +26,6 @@
 </ul>
 </section>
 <h2 class="cover-letter-title"> Cover Letter Template </h2>
-<article class="cover-letter" ng-bind-html='portfolio.cover_letter_template'>
+<article class="cover-letter" ng-bind-html='portfolio.profile.cover_letter_template'>
 
 </article>

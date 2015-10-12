@@ -1,9 +1,24 @@
 var Controllers = angular.module('AppTrackerControllers');
 
-Controllers.controller('PortfolioCtrl', ['$http', '$sce', function($http, $sce) {
-  $http.get('/api/profiles').success(function(res) {
-    this.profiles = res
-    this.profile = this.profiles[0]
-    this.cover_letter_template = $sce.trustAsHtml(this.profile.cover_letter_template)
-  }.bind(this));
+Controllers.controller('PortfolioCtrl', ['$http', '$sce', 'Profile', function($http, $sce, Profile) {
+
+
+
+
+  this.setUp = function() {
+    $http.get('/api/profiles').success(function(res) {
+      this.profiles = []
+      res.forEach(function(profile) {
+        this.profiles.push(new Profile(profile));
+      }.bind(this))
+
+      this.selectedIndex = 0;
+      this.profile = this.profiles[this.selectedIndex];
+    }.bind(this));
+  }
+
+  this.setUp()
+
+
+
 }])
