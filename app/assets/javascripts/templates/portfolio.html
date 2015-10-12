@@ -20,12 +20,11 @@
 
   <li>
     <strong> Personal Site:<br></strong>
-      <a href="{{portfolio.profile.personalSite}}"> {{ portfolio.profile.personalSite }}</a>
+      <a href="{{portfolio.profile.personalSite}}"> {{ portfolio.profile.personal_site }}</a>
   </li>
 </ul>
 </section>
 <h2 class="cover-letter-title"> Cover Letter Template </h2>
-<article class="cover-letter">
+<article class="cover-letter" ng-bind-html='portfolio.cover_letter_template'>
 
-  {{ portfolio.profile.coverLetterTemplate }}
 </article>

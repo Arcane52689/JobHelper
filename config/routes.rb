@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:new, :create, :update, :show]
   namespace :api, defaults: { format: :json } do
     get "/cover_letters/:id/generate_pdf", to: "cover_letters#generate_pdf"
-    resources :profiles, only: [:create, :show, :update]
+    resources :profiles, only: [:create, :show, :update, :index]
     resources :cover_letters, only: [:create, :udpate, :show, :index, :destroy]
     resources :applications, only: [:create, :show, :update, :index]
     resources :users, only: [:show]

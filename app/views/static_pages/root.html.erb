@@ -1,22 +1,22 @@
-<h2>Welcome to the Job Helper!</h2>
 
 <% if logged_in? %>
-  <header class="header group" id="header">
 
-  </header>
-  <div class="outer-modal inactive" id="popup">
 
-  </div>
-  <%= link_to "Logout", session_url, method: :delete %>
-  <div class="" id="main">
+    <header class="header group" id="header">
 
-  </div>
-  <script>
-  $(document).ready(function(){
-    JobHelper.initialize();
-  });
+    </header>
+    <main ng-view>
+
+    </main>
+
+
+
+
+
   </script>
 <% else %>
+<h2>Welcome to the Job Helper!</h2>
+
   <h2> Sign In with Github </h2>
 
   <a href="/auth/github"> Click Here </a>

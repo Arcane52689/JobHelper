@@ -1,8 +1,11 @@
 class Api::ProfilesController < ApplicationController
 
+  def index
+    @profiles = current_user.profiles
+  end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profiles.find(params[:id])
   end
 
   def create
