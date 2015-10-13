@@ -30,7 +30,7 @@ class Api::ProfilesController < ApplicationController
 
 
   def profile_params
-    params.require(:profile).permit(:cover_letter_template, :github,:personal_site, :linkedin)
+    params.require(:profile).permit(:cover_letter_template, :github,:personal_site, :linkedin, :name)
   end
 
 end
