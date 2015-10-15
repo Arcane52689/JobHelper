@@ -1,0 +1,18 @@
+<h3 ng-hide="form.isNew()">Editing {{ form.profile.name }}</h3>
+<br>
+<h3 ng-hide="!form.isNew()">Creating {{ form.profile.name }}</h3>
+<br>
+<label for="">Profile name: <input type="string" name="profile[name]" ng-model="form.profile.name"></label>
+<br>
+<label for="">LinkedIn: <input type="string" name="profile[linkedin]" ng-model="form.profile.linkedin"></label>
+<br>
+<label for="">Github: <input type="string" name="profile[github]" ng-model="form.profile.github"></label>
+<br>
+<label for="">Personal Site: <input type="string" name="profile[personal_site]" ng-model="form.profile.personal_site"></label>
+
+<article class="cover-letter" contentEditable=true ng-bind-html="form.profile.cover_letter_template">
+</article>
+
+<button  ng-click="form.submit()">
+{{ form.profile.isNew() ? "Create" : "Update" }}
+</button>

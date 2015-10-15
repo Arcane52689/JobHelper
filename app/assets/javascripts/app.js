@@ -10,4 +10,9 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'PortfolioCtrl',
     controllerAs: 'portfolio'
   })
+  .when('/profiles/:id/edit', {
+    templateUrl: 'profiles/profile_form.html',
+    controller: 'ProfileFormCtrl',
+    controllerAs: 'form'
+  })
 }])
