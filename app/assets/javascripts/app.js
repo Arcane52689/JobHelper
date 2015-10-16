@@ -15,4 +15,9 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'ProfileFormCtrl',
     controllerAs: 'form'
   })
+  .when('/profiles/new', {
+    templateUrl: 'profiles/profile_form.html',
+    controller: 'ProfileFormCtrl',
+    controllerAs: 'form'
+  })
 }])

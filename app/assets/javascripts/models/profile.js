@@ -23,6 +23,9 @@ AppTrackerModels.factory('Profile', ['$sce', function($sce) {
     return { "profile": this }
   }
 
+  Profile.prototype.updateCoverLetter = function(html) {
+    this.cover_letter_template = $sce.trustAsHtml(html);
+  }
 
   return Profile;
 }])

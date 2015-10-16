@@ -3,6 +3,12 @@
   margin: auto;
 }
 
+.cover-letter-form {
+  width: 800px;
+  margin: auto;
+  min-height: 100px;
+  border: 1px solid black;
+}
 
 
 .show-blurbs {

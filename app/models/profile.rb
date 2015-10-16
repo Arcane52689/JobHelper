@@ -4,6 +4,8 @@ class Profile < ActiveRecord::Base
 
   has_many :cover_letters
 
+  validates :cover_letter_template, presence: true;
+
   LINKS = [
     :github,
     :personal_site,
