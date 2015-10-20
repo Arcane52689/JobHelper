@@ -5,7 +5,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     this.model = options.model;
     this.url = options.url;
     this.models = [];
-    this.comparator = "id";
+    this.comparator = options.comparator || "id";
   }
 
   BaseCollection.prototype.fetch = function() {
@@ -78,10 +78,29 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     return binarySearch(this.models, attribute) + 1;
   }
 
-  
+
 
   BaseCollection.prototype.find = function(id) {
+    for (model in this.models) {
+      if (model.id === id) {
+        return model;
+      } else
+    }
+    return null;
+  }
 
+  BaseColelction.prototype.where = function(callback) {
+    var result = new BaseCollection({
+      model: this.model,
+      url: undefined,
+      comparator: this.comparator
+    });
+    this.models.forEach(function(model) {
+      if (callback(model)) {
+        result.add(model);
+      }
+    }))
+    return result;
   }
 
 }])
