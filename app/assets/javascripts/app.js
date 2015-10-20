@@ -1,5 +1,6 @@
-angular.module('AppTrackerControllers', [])
+angular.module('AppTrackerControllers', []);
 angular.module('AppTrackerModels', []);
+angular.module('AppTrackerCollections', []);
 var AppTracker = angular.module("AppTracker", ['ngRoute', 'templates','AppTrackerControllers', 'AppTrackerModels'])
 
 
@@ -19,5 +20,10 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     templateUrl: 'profiles/profile_form.html',
     controller: 'ProfileFormCtrl',
     controllerAs: 'form'
+  })
+  .when('/companies', {
+    templateUrl: 'companies/company_index.html',
+    controller: 'CompaniesCtrl',
+    controllerAs: 'index'
   })
 }])

@@ -1,18 +1,18 @@
-angular.module('BaseModel', ['$http',function($http) {
-
-  function modelInherits(child, parent) {
+angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($http) {
+  ModelFactory = {};
+  ModelFactory.inherits = function(child, parent) {
     function Surrogate() {};
     Surrogate.prototype = parent.prototype;
     child.prototype = new Surrogate();
   }
 
-  function BaseModel(data) {
-    this.initialize(data);
+  var BaseModel = ModelFactory.BaseModel = function(data) {
+    this.updateAtrributes(data);
   }
 
-  BaseModel.prototype.initialize = function(data) {
+  BaseModel.prototype.updateAttributes = function(data) {
     this.attributes = {};
-    for key in data {
+    for (key in data){
       if (data.hasOwnProperty) {
         this.attributes[key] = data[key];
       }
@@ -26,15 +26,15 @@ angular.module('BaseModel', ['$http',function($http) {
     return !this.id;
   }
 
-  BaseModel.url = function() {
+  BaseModel.prototype.url = function() {
     return "";
   }
 
   BaseModel.prototype.data = function() {
-    return  this.attributes
+    return  this.attributes;
   }
 
-  BaseModel.save = function(options) {
+  BaseModel.prototype.save = function(options) {
     if (this.isNew()) {
       this.create(options);
     } else {
@@ -43,7 +43,7 @@ angular.module('BaseModel', ['$http',function($http) {
   }
 
 
-  BaseModel.create = function(options) {
+  BaseModel.prototype.create = function(options) {
     $http.post(this.url(), this.attributes).success(function(resp, options) {
       options.success && options.success(resp);
     }).error(function(resp, options) {
@@ -51,7 +51,7 @@ angular.module('BaseModel', ['$http',function($http) {
     })
   }
 
-  BaseModel.update = function(options) {
+  BaseModel.prototype.update = function(options) {
     $http.put(this.url(), this.attributes).success(function(resp, options) {
       options.success && options.success(resp);
     }).error(function(resp, options) {
@@ -59,10 +59,14 @@ angular.module('BaseModel', ['$http',function($http) {
     })
   }
 
-  BaseModel.prototype.parentOf = function(child) {
-    modelInherits(child, BaseModel)
+  BaseModel.prototype.get = function(key) {
+    return this.attributes[key];
   }
 
-  return BaseModel;
+  BaseModel.prototype.set = function(key, value) {
+    this.attributes[key] = value;
+  }
+
+  return ModelFactory;
 
 }])
