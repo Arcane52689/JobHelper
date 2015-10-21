@@ -1,9 +1,27 @@
 <h1>HELLO</h1>
+<form class="search" ng-submit="index.confirm(index.addCompany)">
 
-<label for="">SEARCH:  <input type="text" name="company[name]" ng-model="index.searchName" ng-change="index.updateDisplayedCompanies()"></label>
+<label for="">SEARCH:  <input type="text" name="company[name]" ng-model="index.searchName" ng-change="index.updatePage()"><button type="submit" name="button">Add</button></label>
+</form>
+<div class="confirmation-box" ng-show="index.confirmation">
+  <button ng-click="index.yes()">Yes</button>
+  <button ng-click="index.no()">No</button>
+</div>
 <ul class="company-list">
-  <li ng-repeat="company in index.displayedCompanies.models">
+  <li ng-repeat="company in index.shown">
     <h4> {{ company.get('name') }}</h4>
 
+
   </li>
+</ul>
+<ul class="page-select">
+  <button  name="first-page" ng-click="index.goToPage(1)">First</button>
+  <button name="prev" ng-click="index.prevPage()">Prev</button>
+  <ul class="pages">
+    <li class="page" ng-repeat="page in index.nearPages()" ng-class="(page === index.page) ? 'selected' : 'linked'" ng-click="index.goToPage(page)">
+      <label >{{page}}</label>
+    </li>
+  </ul>
+  <button  name="next" ng-click="index.nextPage()">Next</button>
+  <button name="last-page" ng-click="index.goToPage(index.pages())">Last</button>
 </ul>

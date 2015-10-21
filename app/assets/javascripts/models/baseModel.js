@@ -7,10 +7,12 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
   }
 
   var BaseModel = ModelFactory.BaseModel = function(data) {
+
     this.updateAtrributes(data);
   }
 
   BaseModel.prototype.updateAttributes = function(data) {
+    data = data || {}
     this.attributes = {};
     for (key in data){
       if (data.hasOwnProperty) {
@@ -44,9 +46,9 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
 
 
   BaseModel.prototype.create = function(options) {
-    $http.post(this.url(), this.attributes).success(function(resp, options) {
+    $http.post(this.url(), this.attributes).success(function(resp) {
       options.success && options.success(resp);
-    }).error(function(resp, options) {
+    }).error(function(resp) {
       options.error && options.error(resp);
     })
   }

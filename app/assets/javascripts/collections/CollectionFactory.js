@@ -6,6 +6,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     this.url = options.url;
     this.models = [];
     this.comparator = options.comparator || "id";
+    this.reverse = false;
   }
 
   BaseCollection.prototype.fetch = function(options) {
@@ -36,21 +37,30 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
 
   BaseCollection.prototype.add = function(model) {
 
-    if (this.models.length === 0) {
-      this.models.push(model);
-    } else {
-      var index = this.findInsertIndex(model.get(this.comparator));
-      this.models.splice(index, 0, model);
-    }
+    this.models.push(model);
+    this.sort();
   }
 
+  BaseCollection.prototype.reverseOrder = function() {
+    this.reverse = this.reverse ? false : true;
+    return this;
+  }
+
+
+
   BaseCollection.prototype.compare = function(c1, c2) {
-    if (c1.get(this.comparator) < c2.get(this.comparator)) {
-      return -1;
-    } else if ( c1.get(this.comparator) === c2.get(this.comparator)) {
+    var attribute1 = c1.get(this.comparator);
+    var attribute2 = c2.get(this.comparator);
+    if (typeof attribute1 === 'string') {
+      attribute1 = attribute1.toLowerCase();
+      attribute2 = attribute2.toLowerCase();
+    }
+    if (attribute1 < attribute2) {
+      return (!this.reverse) ? -1 : 1;
+    } else if ( attribute1 === attribute2) {
       return 0;
     } else {
-      return 1
+      return (!this.reverse) ? 1 : -1;
     }
   }
 
@@ -60,25 +70,8 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     return this;
   }
 
-  BaseCollection.prototype.findInsertIndex = function(attribute) {
-    var binarySearch = function(arr, target) {
-      if (arr.length <= 1) {
-        return 0;
-      }
-      var mid = Math.floor(arr.length / 2)
-      if (arr[mid].get(this.comparator) > attribute) {
-        return binarySearch(arr.slice(0,mid), attribute);
-      }
-      else if ( arr[mid].get(this.comparator) === attribute) {
-        return mid;
-      }
-      else {
-        return mid + binarySearch(arr.slice(mid), attribute);
-      }
-    }
+  
 
-    return binarySearch(this.models, attribute) + 1;
-  }
 
 
 

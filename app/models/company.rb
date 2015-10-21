@@ -7,7 +7,7 @@ class Company < ActiveRecord::Base
 
   validates :name, presence: true
 
-  before_save :add_http
+  # before_save :add_http
 
   def self.links
     LINKS
