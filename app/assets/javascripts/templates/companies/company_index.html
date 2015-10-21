@@ -1,8 +1,8 @@
 <h1>HELLO</h1>
 
-
+<label for="">SEARCH:  <input type="text" name="company[name]" ng-model="index.searchName" ng-change="index.updateDisplayedCompanies()"></label>
 <ul class="company-list">
-  <li ng-repeat="company in index.companies.models">
+  <li ng-repeat="company in index.displayedCompanies.models">
     <h4> {{ company.get('name') }}</h4>
 
   </li>

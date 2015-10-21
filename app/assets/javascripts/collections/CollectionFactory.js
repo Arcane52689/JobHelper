@@ -8,11 +8,13 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     this.comparator = options.comparator || "id";
   }
 
-  BaseCollection.prototype.fetch = function() {
+  BaseCollection.prototype.fetch = function(options) {
     $http.get(this.url).success(function(resp) {
       this.addModels(resp);
+      options.success && options.success(resp)
     }.bind(this)).error(function(resp) {
       console.error(resp);
+      options.error && options.error(resp);
     })
   }
 
@@ -33,7 +35,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   }
 
   BaseCollection.prototype.add = function(model) {
-    debugger;
+
     if (this.models.length === 0) {
       this.models.push(model);
     } else {
@@ -94,7 +96,8 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
       model: this.model,
       url: undefined,
       comparator: this.comparator
-    });
+    })
+
     this.models.forEach(function(model) {
       if (callback(model)) {
         result.add(model);
