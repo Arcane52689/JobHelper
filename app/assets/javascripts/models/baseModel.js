@@ -29,7 +29,11 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
   }
 
   BaseModel.prototype.url = function() {
-    return "";
+    if (this.isNew()) {
+      return this.urlBase;
+    } else {
+      return this.urlBase + "/"+ this.id
+    }
   }
 
   BaseModel.prototype.data = function() {
