@@ -1,7 +1,7 @@
 <h1>HELLO</h1>
 <form class="search" ng-submit="index.confirm(index.addCompany)">
 
-<label for="">SEARCH:  <input type="text" name="company[name]" ng-model="index.searchName" ng-change="index.updatePage()"><button type="submit" name="button">Add</button></label>
+<label for="">SEARCH:  <input type="text" name="company[name]" ng-model="index.searchName" ng-change="index.updateCompanies()"><button type="submit" name="button">Add</button></label>
 </form>
 <div class="confirmation-box" ng-show="index.confirmation">
   <button ng-click="index.yes()">Yes</button>
@@ -9,19 +9,21 @@
 </div>
 <ul class="company-list">
   <li ng-repeat="company in index.shown">
-    <h4> {{ company.get('name') }}</h4>
+    <ul class="company">
+      <li class="item company-name"><a class="linked" href="#/companies/{{company.id}}">{{company.get('name')}}</a></li>
+    </ul>
 
 
   </li>
 </ul>
 <ul class="page-select">
-  <button  name="first-page" ng-click="index.goToPage(1)">First</button>
-  <button name="prev" ng-click="index.prevPage()">Prev</button>
+  <li class="page" ng-click="index.goToPage(1)" ng-class="(index.page === 1) ? 'invalid' : 'linked'">First</li>
+  <li class="page" ng-click="index.prevPage()" ng-class="(index.hasPrev()) ? 'linked' : 'invalid'">Prev</li>
   <ul class="pages">
     <li class="page" ng-repeat="page in index.nearPages()" ng-class="(page === index.page) ? 'selected' : 'linked'" ng-click="index.goToPage(page)">
-      <label >{{page}}</label>
+      {{page}}
     </li>
   </ul>
-  <button  name="next" ng-click="index.nextPage()">Next</button>
-  <button name="last-page" ng-click="index.goToPage(index.pages())">Last</button>
+  <li class="page" ng-click="index.nextPage()" ng-class="(index.hasNext()) ? 'linked' : 'invalid'">Next</li>
+  <li class="page" ng-click="index.goToPage(index.pages())" ng-class="(index.page === index.pages()) ? 'invalid' : 'linked'">Last</li>
 </ul>

@@ -28,4 +28,9 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'CompaniesCtrl',
     controllerAs: 'index'
   })
+  .when('/companies/:id', {
+    templateUrl: 'companies/company_form.html',
+    controller: 'CompanyFormCtrl',
+    controllerAs: 'form'
+  })
 }])

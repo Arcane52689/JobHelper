@@ -54,10 +54,10 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
   }
 
   BaseModel.prototype.update = function(options) {
-    $http.put(this.url(), this.attributes).success(function(resp, options) {
+    $http.put(this.url(), this.attributes).success(function(resp) {
       options.success && options.success(resp);
     }).error(function(resp, options) {
-      options.error && options.error(resp, options)
+      options.error && options.error(resp)
     })
   }
 
@@ -67,6 +67,21 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
 
   BaseModel.prototype.set = function(key, value) {
     this.attributes[key] = value;
+  }
+
+  BaseModel.prototype.fetch = function(options) {
+    options = options || {};
+    if (this.id) {
+      $http.get(this.url()).success(function(resp) {
+        this.updateAttributes(resp);
+        options.success && options.success(resp);
+      }.bind(this)).error(function(resp) {
+        options.error && options.error(resp);
+      })
+    } else {
+      console.error("Can't call fetch on an unsaved object")
+    }
+
   }
 
   return ModelFactory;

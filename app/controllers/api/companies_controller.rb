@@ -5,9 +5,18 @@ class Api::CompaniesController < ApplicationController
     if @company.save
       render json: @company
     else
-      render json: { errors: @company.errors.full_messages }
+      render json: { errors: @company.errors.full_messages }, status: 422;
     end
 
+  end
+
+  def update
+    @company = Company.find(params[:id])
+    if @company.update(company_params)
+      render json:@company
+    else
+      render json: { errors: @company.errors.full_messages }, status: 422
+    end
   end
 
   def show

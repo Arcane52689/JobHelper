@@ -18,6 +18,11 @@ AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'CollectionFactory',
     this.shown = this.displayedCompanies.all().slice(startIndex, startIndex + this.perPage)
   }
 
+  this.updateCompanies = function() {
+    this.page = 1;
+    this.updatePage();
+  }
+
   this.addCompany = function() {
     var newComp = new Company();
     newComp.set('name',this.searchName);
@@ -36,19 +41,26 @@ AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'CollectionFactory',
     return Math.floor(this.displayedCompanies.all().length / this.perPage) + 1;
   }
 
+  this.hasNext = function() {
+    return (this.page < this.pages())
+  }
   this.nextPage = function() {
-    if (this.page < this.pages()) {
+    if (this.hasNext()) {
       this.page += 1
+      this.updatePage();
     }
-    this.updatePage();
+  }
+  this.hasPrev = function() {
+    return (this.page > 1)
   }
 
   this.prevPage = function() {
-    if(this.page > 1) {
+    if (this.hasPrev()){
       this.page -= 1;
+      this.updatePage();
     }
-    this.updatePage();
   }
+  
 
 
   this.goToPage = function(page) {
@@ -88,7 +100,7 @@ AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'CollectionFactory',
 
   this.searchName = "";
   this.page = 1;
-  this.perPage = 3;
+  this.perPage = 5;
   this.orderByAttribute = 'name';
   this.reverse = false;
 

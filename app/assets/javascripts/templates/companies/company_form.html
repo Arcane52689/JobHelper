@@ -1,0 +1,45 @@
+
+<form ng-submit="form.update()">
+
+  <h2 class="title">
+    <ul class="show-edit-box">
+      <li ng-hide="form.editing">  {{ form.company.get('name')}} </li>
+      <li ng-show="form.editing"> <input type="text" name="company[name]" ng-model="form.company.attributes.name">
+    </ul>
+  </h2>
+  <ul class="links">
+    <li class="company-link">
+      <label>Website:</label>
+
+      <ul class="show-edit-box">
+        <li ng-hide="form.editing" class="linked"><a href="{{form.company.get('website')}}">{{form.company.get('website')}}</a></li>
+        <li ng-show="form.editing"><input type="text" name="company[website]" ng-model="form.company.attributes.website"></li>
+      </ul>
+    </li>
+
+    <li class="company-link">
+      <label>Postings:</label>
+      <ul class="show-edit-box">
+        <li ng-hide="form.editing" class="linked"><a href="{{form.company.get('jobs_site')}}">{{form.company.get('jobs_site')}}</a></li>
+        <li ng-show="form.editing"><input type="text" name="company[jobs_site]" ng-model="form.company.attributes.jobs_site"></li>
+      </ul>
+    </li>
+
+    <li class="company-link">
+      <label>Contact Email:</label>
+
+      <ul class="show-edit-box">
+        <li ng-hide="form.editing" class="linked"><a href="mailto:{{form.company.get('contact')}}">{{form.company.get('contact')}}</a></li>
+        <li ng-show="form.editing"><input type="text" name="company[contact]" ng-model="form.company.attributes.contact"></li>
+      </ul>
+    </li>
+
+
+
+
+  </ul>
+
+
+  <button ng-show="form.editing">update</button>
+</form>
+<button ng-click="form.beginEdit()" ng-hide="form.editing"> edit </button>

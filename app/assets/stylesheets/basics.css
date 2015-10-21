@@ -1,0 +1,26 @@
+.page {
+  float: left;
+  margin: 5px 10px;
+}
+
+.linked {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+.selected {
+  color: bold;
+  font-weight: bold;
+}
+
+
+.invalid {
+  text-decoration: line-through;
+}
+
+.company-link {
+  display: block;
+  width: 200px;
+  
+}

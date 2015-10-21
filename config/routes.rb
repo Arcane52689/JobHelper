@@ -11,6 +11,6 @@ Rails.application.routes.draw do
     resources :applications, only: [:create, :show, :update, :index]
     resources :users, only: [:show]
     resources :blurbs, only: [:create, :destroy, :show, :index]
-    resources :companies, only: [:create, :show, :index]
+    resources :companies, only: [:create, :update, :show, :index, :delete]
   end
 end

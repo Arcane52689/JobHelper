@@ -12,7 +12,7 @@ AppTrackerModels.factory('Company', ['$http', 'ModelFactory', function($http, Mo
       if (this.isNew()) {
         return "/api/companies";
       } else {
-        return '/api/compaines/' + this.id;
+        return '/api/companies/' + this.id;
       }
     }
 
