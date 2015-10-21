@@ -6,6 +6,7 @@ AppTrackerModels.factory('Company', ['$http', 'ModelFactory', function($http, Mo
 
       this.updateAttributes(data);
     }
+    ModelFactory.inherits(Company, ModelFactory.BaseModel);
 
     Company.prototype.url = function() {
       if (this.isNew()) {
@@ -15,7 +16,6 @@ AppTrackerModels.factory('Company', ['$http', 'ModelFactory', function($http, Mo
       }
     }
 
-    ModelFactory.inherits(Company, ModelFactory.BaseModel);
 
 
     return Company;

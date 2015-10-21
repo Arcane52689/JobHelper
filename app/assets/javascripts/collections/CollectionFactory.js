@@ -10,9 +10,9 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
 
   BaseCollection.prototype.fetch = function() {
     $http.get(this.url).success(function(resp) {
-      this.addModels(resp)
+      this.addModels(resp);
     }.bind(this)).error(function(resp) {
-
+      console.error(resp);
     })
   }
 
@@ -26,14 +26,14 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   }
 
   BaseCollection.prototype.each = function(callback) {
-    for (id in this.models) {
-      if (this.models.hasOwnProperty(id)) {
-        callback(this.models[id], id,)
-      }
+    for (model in this.models) {
+      callback(model);
     }
+    return this;
   }
 
   BaseCollection.prototype.add = function(model) {
+    debugger;
     if (this.models.length === 0) {
       this.models.push(model);
     } else {
@@ -84,12 +84,12 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     for (model in this.models) {
       if (model.id === id) {
         return model;
-      } else
+      }
     }
     return null;
   }
 
-  BaseColelction.prototype.where = function(callback) {
+  BaseCollection.prototype.where = function(callback) {
     var result = new BaseCollection({
       model: this.model,
       url: undefined,
@@ -99,8 +99,14 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
       if (callback(model)) {
         result.add(model);
       }
-    }))
+    })
     return result;
   }
+
+  BaseCollection.prototype.all = function() {
+    return this.models;
+  }
+
+  return CollectionFactory;
 
 }])

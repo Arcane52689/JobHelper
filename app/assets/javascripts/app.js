@@ -1,7 +1,7 @@
 angular.module('AppTrackerControllers', []);
 angular.module('AppTrackerModels', []);
 angular.module('AppTrackerCollections', []);
-var AppTracker = angular.module("AppTracker", ['ngRoute', 'templates','AppTrackerControllers', 'AppTrackerModels'])
+var AppTracker = angular.module("AppTracker", ['ngRoute', 'templates','AppTrackerControllers', 'AppTrackerModels', 'AppTrackerCollections'])
 
 
 
