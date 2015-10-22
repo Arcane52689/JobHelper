@@ -14,9 +14,13 @@
     <form ng-submit="form.save()">
       <ul class="blurb-form">
 
-          <li>Title: <input type="text" name="blurb[title]" ng-model='form.selected.attributes.title'></li>
+          <li>Title:
+            <br>
+            <input type="text" name="blurb[title]" ng-model='form.selected.attributes.title'></li>
 
-          <li> Body: <textarea name="blurb[]" rows="8" cols="40" ng-model="form.selected.attributes.body"></textarea></li>
+          <li> Body:
+            <br>
+            <textarea name="blurb[]" rows="8" cols="40" ng-model="form.selected.attributes.body"></textarea></li>
       </ul>
       <button>{{ (form.selected.id) ? 'Update' : 'Create' }}</button>
     </form>

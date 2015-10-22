@@ -17,8 +17,23 @@ Controllers.controller('PortfolioCtrl', ['$http', '$sce', 'Profile', function($h
     }.bind(this));
   }
 
+
+  this.toggle = function(key) {
+    this.displayed[key] = this.displayed[key] ? false : true;
+    return this;
+  }
+
+  this.isDisplayed = function(key) {
+    return this.displayed[key]
+  }
+
   this.setUp()
 
 
+
+  this.displayed = {
+    'blurbs': true,
+    'profiles': true
+  }
 
 }])

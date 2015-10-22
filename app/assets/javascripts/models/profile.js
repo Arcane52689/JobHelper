@@ -4,7 +4,7 @@ AppTrackerModels.factory('Profile', ['$sce', function($sce) {
   function Profile(data) {
     if (data.cover_letter_template) {
       this.cover_letter_template = $sce.trustAsHtml(data.cover_letter_template);
-    debugger
+
     } else {
       this.cover_letter_template = "";
     }
