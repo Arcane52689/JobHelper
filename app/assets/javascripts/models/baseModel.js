@@ -41,6 +41,7 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
   }
 
   BaseModel.prototype.save = function(options) {
+    options = options || {};
     if (this.isNew()) {
       this.create(options);
     } else {
@@ -51,16 +52,18 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
 
   BaseModel.prototype.create = function(options) {
     $http.post(this.url(), this.attributes).success(function(resp) {
+      this.updateAttributes(resp);
       options.success && options.success(resp);
-    }).error(function(resp) {
+    }.bind(this)).error(function(resp) {
       options.error && options.error(resp);
     })
   }
 
   BaseModel.prototype.update = function(options) {
     $http.put(this.url(), this.attributes).success(function(resp) {
+      this.updateAttributes(resp);
       options.success && options.success(resp);
-    }).error(function(resp, options) {
+    }.bind(this)).error(function(resp, options) {
       options.error && options.error(resp)
     })
   }

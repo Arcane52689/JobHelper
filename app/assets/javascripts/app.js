@@ -33,4 +33,9 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'CompanyFormCtrl',
     controllerAs: 'form'
   })
+  .when('/blurbs', {
+    templateUrl: 'blurbs/blurb_form.html',
+    controller: 'BlurbFormCtrl',
+    controllerAs: 'form'
+  })
 }])

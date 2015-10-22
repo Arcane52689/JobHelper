@@ -1,0 +1,27 @@
+<h3>Blurbs!</h3>
+
+
+<ul class="blurb-container">
+  <li>
+    <ul class="blurbs">
+      <li ng-class="form.checkClass('new')" ng-click="form.selectNew()"> New </li>
+      <li ng-repeat="blurb in form.blurbs.all()" ng-click="form.selectBlurb(blurb.id)" ng-class="form.checkClass(blurb.id)">
+        {{blurb.get('title')}}
+      </li>
+    </ul>
+  </li>
+  <li ng-show="form.selected">
+    <form ng-submit="form.save()">
+      <ul class="blurb-form">
+
+          <li>Title: <input type="text" name="blurb[title]" ng-model='form.selected.attributes.title'></li>
+
+          <li> Body: <textarea name="blurb[]" rows="8" cols="40" ng-model="form.selected.attributes.body"></textarea></li>
+      </ul>
+      <button>{{ (form.selected.id) ? 'Update' : 'Create' }}</button>
+    </form>
+  </li>
+
+
+
+</ul>

@@ -10,6 +10,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   }
 
   BaseCollection.prototype.fetch = function(options) {
+    options = options || {};
     $http.get(this.url).success(function(resp) {
       this.addModels(resp);
       options.success && options.success(resp)
@@ -36,7 +37,6 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   }
 
   BaseCollection.prototype.add = function(model) {
-
     this.models.push(model);
     this.sort();
   }
@@ -70,18 +70,20 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     return this;
   }
 
-  
+
 
 
 
 
   BaseCollection.prototype.find = function(id) {
-    for (model in this.models) {
+
+    this.models.forEach(function(model) {
       if (model.id === id) {
-        return model;
+        result = model;
+
       }
-    }
-    return null;
+    })
+    return result;
   }
 
   BaseCollection.prototype.where = function(callback) {
