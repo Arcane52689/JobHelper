@@ -1,9 +1,6 @@
-angular.module("AppTrackerControllers").controller('BlurbFormCtrl', ['$http','Blurb','CollectionFactory', function($http, Blurb, CollectionFactory) {
+angular.module("AppTrackerControllers").controller('BlurbFormCtrl', ['$http','Blurb', 'Collections', function($http, Blurb, Collections) {
   this.setUp = function() {
-    this.blurbs = new CollectionFactory.BaseCollection({
-      url: '/api/blurbs',
-      model: Blurb
-    })
+    this.blurbs = Collections.Blurbs
     this.blurbs.fetch();
 
     this.newBlurb = new Blurb({});

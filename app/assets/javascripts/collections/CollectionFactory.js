@@ -5,6 +5,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     this.model = options.model;
     this.url = options.url;
     this.models = [];
+    this.modelsById = {};
     this.comparator = options.comparator || "id";
     this.reverse = false;
   }
@@ -37,7 +38,17 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   }
 
   BaseCollection.prototype.add = function(model) {
-    this.models.push(model);
+    if (model.id) {
+      if (this.modelsById[model.id]) {
+        this.modelsById[model.id].updateAttributes(model.attributes);
+      } else {
+        this.modelsById[model.id] = model;
+        this.models.push(model);
+      }
+    } else {
+      this.models.push(model)
+    }
+
     this.sort();
   }
 
@@ -104,7 +115,42 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   BaseCollection.prototype.all = function() {
     return this.models;
   }
+  // returns the first n items in the collection. if no number is passed, it returns the first item
+  BaseCollection.prototype.first = function(n) {
+    n = n || 1;
+    return this.models.splice(0, n);
+  }
 
   return CollectionFactory;
 
+}])
+
+angular.module('AppTrackerCollections').factory('Collections',['CollectionFactory', 'Blurb', 'Company', 'CoverLetter', 'Profile', function(CollectionFactory, Blurb, Company, CoverLetter, Profile){
+  Collections = {};
+
+  Collections.Blurbs = new CollectionFactory.BaseCollection({
+    model: Blurb,
+    url: '/api/blurbs'
+  });
+
+  Collections.Companies = new CollectionFactory.BaseCollection({
+    model: Company,
+    url: '/api/companies'
+  });
+
+  Collections.CoverLetters = new CollectionFactory.BaseCollection({
+    model: CoverLetter,
+    url: '/api/cover_letters'
+  })
+
+  Collections.Profiles = new CollectionFactory.BaseCollection({
+    model: Profile,
+    url: '/api/profiles'
+  })
+
+
+
+
+
+  return Collections;
 }])

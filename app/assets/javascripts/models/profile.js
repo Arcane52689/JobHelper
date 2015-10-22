@@ -1,30 +1,26 @@
 var AppTrackerModels = angular.module('AppTrackerModels');
 
-AppTrackerModels.factory('Profile', ['$sce', function($sce) {
+AppTrackerModels.factory('Profile', [ 'ModelFactory', '$sce', function(ModelFactory, $sce) {
   function Profile(data) {
-    if (data.cover_letter_template) {
-      this.cover_letter_template = $sce.trustAsHtml(data.cover_letter_template);
+    this.updateAttributes(data)
+    this.urlBase = '/api/profiles'
+  }
 
-    } else {
-      this.cover_letter_template = "";
+  ModelFactory.inherits(Profile, ModelFactory.BaseModel);
+
+  Profile.prototype.updateAttributes = function(data) {
+    ModelFactory.BaseModel.prototype.updateAttributes.call(this, data);
+    if (!this.attributes.cover_letter_template) {
+      debugger
+      this.attributes.cover_letter_template = ""
     }
-    this.linkedin = data.linkedin || "";
-    this.github = data.github || "";
-    this.personal_site = data.personal_site || "";
-    this.name = data.name || "";
-    this.id = data.id || undefined;
+    this.trustCoverLetterTemplate()
   }
 
-  Profile.prototype.isNew = function() {
-    return !this.id
-  }
 
-  Profile.prototype.data = function() {
-    return { "profile": this }
-  }
-
-  Profile.prototype.updateCoverLetter = function(html) {
-    this.cover_letter_template = $sce.trustAsHtml(html);
+  Profile.prototype.trustCoverLetterTemplate = function() {
+    debugger
+    this.attributes.cover_letter_template = $sce.trustAsHtml(this.attributes.cover_letter_template);
   }
 
   return Profile;

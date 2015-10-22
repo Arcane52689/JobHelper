@@ -4,8 +4,8 @@ class Company < ActiveRecord::Base
     :jobs_site
   ]
 
-
-  validates :name, presence: true
+  has_many :applications, dependent: :destroy
+  validates :name, presence: true, uniqueness: true
 
   before_save :add_http
 

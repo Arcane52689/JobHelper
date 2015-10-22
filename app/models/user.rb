@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-  has_many :cover_letters, dependent: :destroy
   has_many :oauths, dependent: :destroy
   has_many :sessions, dependent: :destroy
   has_many :profiles, dependent: :destroy
