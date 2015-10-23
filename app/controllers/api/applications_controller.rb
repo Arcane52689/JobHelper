@@ -23,14 +23,14 @@ class Api::ApplicationsController < ApplicationController
   end
 
   def index
-    @applications = current_user.applications.includes(:company)
+    @applications = current_user.applications
   end
 
 
 
 
   def application_params
-    params.require(:application).permit(:company_id, :cover_letter_id, :job_url)
+    params.require(:application).permit(:company_id, :cover_letter_id, :job_url, :title)
   end
 
 

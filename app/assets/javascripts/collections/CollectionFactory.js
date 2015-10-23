@@ -122,7 +122,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
 
 }])
 
-angular.module('AppTrackerCollections').factory('Collections',['CollectionFactory', 'Blurb', 'Company', 'CoverLetter', 'Profile', function(CollectionFactory, Blurb, Company, CoverLetter, Profile){
+angular.module('AppTrackerCollections').factory('Collections',['CollectionFactory', 'Blurb', 'Company', 'CoverLetter', 'Profile', 'Application', function(CollectionFactory, Blurb, Company, CoverLetter, Profile, Application){
   Collections = {};
 
   Collections.Blurbs = new CollectionFactory.BaseCollection({
@@ -143,6 +143,11 @@ angular.module('AppTrackerCollections').factory('Collections',['CollectionFactor
   Collections.Profiles = new CollectionFactory.BaseCollection({
     model: Profile,
     url: '/api/profiles'
+  })
+
+  Collections.Applications = new CollectionFactory.BaseCollection({
+    model: Application,
+    url: '/api/applications'
   })
 
 

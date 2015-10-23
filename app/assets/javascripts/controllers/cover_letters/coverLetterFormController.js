@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce', 'CoverLetter', 'Collections', '$routeParams', '$location', function($sce, CoverLetter, Collections, $routeParams, $location) {
+angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce', 'CoverLetter', 'Collections', '$routeParams', '$location', 'Selected', function($sce, CoverLetter, Collections, $routeParams, $location, Selected) {
   this.setUp = function() {
     this.date = new Date();
 
@@ -8,13 +8,12 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
     this.companies.fetch();
     this.blurbs = Collections.Blurbs;
     this.blurbs.fetch();
+    this.selected = Selected.data;
+    
     this.selecting = {
       'profiles': false,
-      'companies': false,
       'blurbs': false
     }
-    this.displayedCompanies = [];
-
     if ($routeParams['id']){
       this.setUpEdit($routeParams['id']);
     } else {
@@ -25,7 +24,7 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
   this.setUpNew = function(){
     this.searchName = "";
     this.coverLetter = new CoverLetter({});
-    this.selected = {}
+
   }
 
   this.setUpEdit = function(id) {
@@ -37,28 +36,11 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
 
       this.coverLetter.trustBody();
       this.preview = this.coverLetter.html;
-    }})
+    }.bind(this)})
   }
 
 
-  this.filterCompanies = function() {
-    this.selecting.companies = true;
-    if (this.searchName){
-      var lowercase = this.searchName.toLowerCase();
-      this.displayedCompanies = this.companies.where(function(m) {
-        return (m.get('name').toLowerCase().indexOf(lowercase) > -1);
-      }.bind(this)).first(10);
-    } else {
-      this.displayedCompanies = [];
-    }
-  }
 
-  this.selectCompany = function(id) {
-    this.selected.company = this.companies.find(id);
-    this.searchName = this.selected.company.get('name');
-    this.selecting.companies = false;
-
-  }
 
   this.toggle = function(key) {
     this.selecting[key] = true;
