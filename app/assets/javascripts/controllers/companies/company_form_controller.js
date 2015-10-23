@@ -13,7 +13,6 @@ angular.module('AppTrackerControllers').controller('CompanyFormCtrl',['$http','C
   }
 
   this.beginEdit = function() {
-    debugger;
     this.editing = true;
   }
 

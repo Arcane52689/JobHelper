@@ -1,0 +1,44 @@
+<div class="selections" >
+
+
+  <section class="company-search">
+    <label for="">Company Name</label>
+    <ul class="search-box">
+      <li><input type="text" ng-model="form.searchName" ng-change="form.filterCompanies()" class="search-bar"> </li>
+      <li ng-show="form.selecting.companies"
+        ng-repeat="company in form.displayedCompanies" ng-click="form.selectCompany(company.id)"
+        class="search-suggestion">
+        {{ company.get('name')}}
+      </li>
+    </ul>
+  </section>
+
+
+  <section class="profile-select">
+    <div class="profile-drop-down">
+      <div class="selected-profile" ng-click="form.toggle('profiles')"> Select Profile {{ form.selected.profile.get('name') }}</div>
+      <ul class="profile-dropdown" ng-show="form.selecting.profiles">
+        <li ng-repeat="profile in form.profiles.all()" ng-click="form.selectProfile(profile.id)">
+          {{ profile.get('name' )}}
+        </li>
+      </ul>
+    </div>
+
+  </section>
+
+  <section class="blurb-select">
+    <div class="blurb-drop-down">
+      <div ng-click="form.toggle('blurbs')"> Select Blurb {{ form.selected.blurb.get('title') }}</div>
+      <ul class="blurb-dropdown" ng-show="form.selecting.blurbs">
+        <li ng-repeat="blurb in form.blurbs.all()" ng-click="form.selectBlurb(blurb.id)">
+          {{ blurb.get('title' )}}
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+<button ng-click="form.updatePreview()">Preview</button>
+<button ng-click="form.reset()">Reset</button>
+<article class="cover-letter" contentEditable=true ng-bind-html="form.preview">
+
+</article>

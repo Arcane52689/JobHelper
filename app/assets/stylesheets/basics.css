@@ -22,5 +22,30 @@
 .company-link {
   display: block;
   width: 200px;
-  
+}
+
+.search-box {
+  width: 200px;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  margin: auto;
+}
+
+
+.search-bar {
+  width: 190px;
+
+}
+
+
+.search-suggestion {
+  display: block;
+  width: 190px;
+  border-bottom: 1px solid #aaa;
+  text-align: center;
+
+  padding: 5px;
+}
+.search-suggestion:hover {
+  background: rgb(40,100,220);
 }

@@ -31,8 +31,8 @@ AppTrackerControllers.controller("ProfileFormCtrl", ['$http', '$location','$rout
 
 
   this.submit = function() {
-    this.profile.cover_letter_template =$(".cover-letter-form").html();
-    this.profile.trustCoverLetterTemplate();
+    this.profile.attributes.cover_letter_template = $(".cover-letter-form").html();
+    this.profile.updatePreview();
     this.profile.save()
   }
 

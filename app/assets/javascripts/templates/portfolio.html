@@ -13,7 +13,7 @@
 <section class="profiles-container" ng-show="portfolio.isDisplayed('profiles')">
 <label for="">
   Select Profile:
- <select class="select profile-select" name="profile" ng-model="portfolio.profile" ng-options="profile as profile.name for profile in portfolio.profiles">
+ <select class="select profile-select" name="profile" ng-model="portfolio.profile" ng-options="profile as profile.get('name') for profile in portfolio.profiles.all()">
 </label>
 
 </select>
@@ -24,22 +24,22 @@
 <ul class="links group">
   <li>
     <strong> LinkedIn Profile:<br></strong>
-      <a href="{{portfolio.profile.linkedin}}"> {{ portfolio.profile.linkedin}} </a>
+      <a href="{{ portfolio.profile.get('linkedin') }}"> {{ portfolio.profile.get('linkedin')}} </a>
   </li>
 
   <li>
     <strong> Github Page: <br></strong>
-     <a href="{{ portfolio.profile.github }}"> {{ portfolio.profile.github }} </a>
+     <a href="{{ portfolio.profile.get('github') }}"> {{ portfolio.profile.get('github') }} </a>
   </li>
 
   <li>
     <strong> Personal Site:<br></strong>
-      <a href="{{portfolio.profile.personalSite}}"> {{ portfolio.profile.personal_site }}</a>
+      <a href="{{portfolio.profile.personalSite}}"> {{ portfolio.profile.get('personal_site') }}</a>
   </li>
 </ul>
 </section>
 <h2 class="cover-letter-title"> Cover Letter Template </h2>
-<article class="cover-letter" ng-bind-html='portfolio.profile.cover_letter_template'>
+<article class="cover-letter" ng-bind-html='portfolio.profile.html'>
 
 </article>
 

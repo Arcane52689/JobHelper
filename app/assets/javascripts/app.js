@@ -38,4 +38,14 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'BlurbFormCtrl',
     controllerAs: 'form'
   })
+  .when('/cover_letters/new', {
+    templateUrl: 'cover_letters/cover_letter_form.html',
+    controller: 'CoverLetterFormCtrl',
+    controllerAs: 'form'
+  })
+  .when('/cover_letters/:id/edit', {
+    templateUrl: 'cover_letters/cover_letter_form.html',
+    controller: 'CoverLetterFormCtrl',
+    controllerAs: 'form'
+  })
 }])

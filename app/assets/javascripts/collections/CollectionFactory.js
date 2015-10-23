@@ -22,7 +22,10 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
   }
 
   BaseCollection.prototype.addModels = function(dataArr) {
+    this.adding = true;
     dataArr.forEach(this.addModel.bind(this));
+    this.adding = false
+    this.sort();
   }
 
   BaseCollection.prototype.addModel = function(data) {
@@ -48,8 +51,9 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
     } else {
       this.models.push(model)
     }
-
-    this.sort();
+    if (!this.adding) {
+      this.sort();
+    }
   }
 
   BaseCollection.prototype.reverseOrder = function() {
@@ -87,14 +91,7 @@ angular.module('AppTrackerCollections').factory('CollectionFactory', ['$http', f
 
 
   BaseCollection.prototype.find = function(id) {
-
-    this.models.forEach(function(model) {
-      if (model.id === id) {
-        result = model;
-
-      }
-    })
-    return result;
+    return this.modelsById[id];
   }
 
   BaseCollection.prototype.where = function(callback) {
