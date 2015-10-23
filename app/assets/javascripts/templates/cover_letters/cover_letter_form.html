@@ -37,8 +37,9 @@
     </div>
   </section>
 </div>
-<button ng-click="form.updatePreview()">Preview</button>
-<button ng-click="form.reset()">Reset</button>
-<article class="cover-letter" contentEditable=true ng-bind-html="form.preview">
+<button class="preview" ng-click="form.updatePreview()">Preview</button>
+<button class="reset" ng-click="form.reset()">Reset</button>
+<button class="submit" ng-click="form.save()">Save</button>
+<article class="cover-letter-form" contentEditable=true ng-bind-html="form.preview">
 
 </article>

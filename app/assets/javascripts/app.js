@@ -48,4 +48,14 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'CoverLetterFormCtrl',
     controllerAs: 'form'
   })
+  .when('/cover_letters/', {
+    templateUrl: 'cover_letters/cover_letter_index.html',
+    controller: 'CoverLettersCtrl',
+    controllerAs: 'index'
+  })
+  .when('/cover_letters/:id', {
+    templateUrl: 'cover_letters/cover_letter_index.html',
+    controller: "CoverLettersCtrl",
+    controllerAs: 'index'
+  })
 }])

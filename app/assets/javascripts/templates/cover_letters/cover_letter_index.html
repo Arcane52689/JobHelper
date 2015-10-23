@@ -1,0 +1,12 @@
+<h1> Hello </h1>
+
+<label for="">Select Cover Letter:
+  <select class="select cover-letter-select"
+  ng-model="index.coverLetter"
+  ng-options="coverLetter as coverLetter.get('title') for coverLetter in index.coverLetters.all()" >
+  </select>
+</label>
+
+<article class="cover-letter" ng-bind-html="index.coverLetter.html">
+
+</article>

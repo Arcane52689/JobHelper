@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce', 'CoverLetter', 'Collections', '$routeParams', function($sce, CoverLetter, Collections, $routeParams) {
+angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce', 'CoverLetter', 'Collections', '$routeParams', '$location', function($sce, CoverLetter, Collections, $routeParams, $location) {
   this.setUp = function() {
     this.date = new Date();
 
@@ -34,6 +34,9 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
       this.selected.profile = this.profiles.find(this.coverLetter.get('profile_id'));
       this.selected.blurb = this.blurbs.find(this.coverLetter.get('blurb_id'));
       this.selected.company = this.companies.find(this.coverLetter.get('company_id'));
+
+      this.coverLetter.trustBody();
+      this.preview = this.coverLetter.html;
     }})
   }
 
@@ -108,6 +111,22 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
     ];
     string = months[this.date.getMonth()] + " " + this.date.getDate() + ", " + this.date.getFullYear();
     return string;
+  }
+
+  this.save = function() {
+    if (!this.allSelected()) {
+      return ;
+    }
+    this.coverLetter.set('profile_id', this.selected.profile.id);
+    this.coverLetter.set('company_id', this.selected.company.id);
+    this.coverLetter.set('blurb_id', this.selected.blurb.id);
+    var text = $('.cover-letter-form').html();
+    this.coverLetter.set('body', text);
+    this.coverLetter.save({
+      success: function(resp) {
+        $location.path("/cover_letters/"+this.coverLetter.id);
+      }.bind(this)
+    });
   }
 
 
