@@ -3,7 +3,9 @@ angular.module('AppTrackerUtilities').factory('Selected', function() {
     'data' : {
       'company': undefined,
       'cover_letter': undefined,
-      'application': undefined
+      'application': undefined,
+      'profile': undefined,
+      'blurb': undefined
     }
   };
   Selected.add= function(key, model){

@@ -49,3 +49,16 @@
 .search-suggestion:hover {
   background: rgb(40,100,220);
 }
+
+.select-item {
+  border-bottom: 1px solid #aaa;
+}
+.select-item:hover {
+  background: rgb(40,100,220);
+  
+}
+
+.selected-item {
+  background: rgb(40,100,220);
+  color: #fff;
+}

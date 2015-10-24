@@ -4,9 +4,6 @@ angular.module('AppTrackerDirectives').directive('companySearch', function() {
     replace: true,
     templateUrl: 'companies/company_search.html',
     controller: 'CompanySearchCtrl',
-    controllerAs: 'search',
-    scope: {
-      company_id: "=companyId"
-    }
+    controllerAs: 'search'
   };
 });

@@ -1,0 +1,14 @@
+<section class="profile-select">
+  <div class="profile-drop-down">
+    <div class="selected-profile" ng-click="select.toggle()"> Select Profile {{ select.selected.profile.get('name') }}</div>
+    <ul class="profile-dropdown" ng-show="select.selecting">
+      <li ng-repeat="profile in select.profiles.all()" ng-click="select.selectProfile(profile.id)"
+      ng-class="select.checkClass(profile.id)"
+      class="select-item"
+      >
+        {{ profile.get('name' )}}
+      </li>
+    </ul>
+  </div>
+
+</section>

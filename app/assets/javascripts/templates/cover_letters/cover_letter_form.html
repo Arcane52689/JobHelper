@@ -4,17 +4,7 @@
   <company-search></company-search>
 
 
-  <section class="profile-select">
-    <div class="profile-drop-down">
-      <div class="selected-profile" ng-click="form.toggle('profiles')"> Select Profile {{ form.selected.profile.get('name') }}</div>
-      <ul class="profile-dropdown" ng-show="form.selecting.profiles">
-        <li ng-repeat="profile in form.profiles.all()" ng-click="form.selectProfile(profile.id)">
-          {{ profile.get('name' )}}
-        </li>
-      </ul>
-    </div>
-
-  </section>
+  <profile-select></profile-select>
 
   <section class="blurb-select">
     <div class="blurb-drop-down">
