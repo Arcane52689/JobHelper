@@ -4,6 +4,6 @@ angular.module('AppTrackerDirectives').directive('profileSelect', function() {
     replace: true,
     templateUrl: 'profiles/profile_select.html',
     controller: 'ProfileSelectCtrl',
-    controllerAs: 'select'
+    controllerAs: 'profileSelect'
   }
 })

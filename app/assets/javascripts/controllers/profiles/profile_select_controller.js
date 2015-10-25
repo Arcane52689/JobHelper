@@ -21,6 +21,7 @@ angular.module('AppTrackerControllers').controller('ProfileSelectCtrl', ['Collec
   }
 
   this.selectProfile = function(id) {
+
     this.selected.profile = this.profiles.find(id);
     this.selecting = false;
   }

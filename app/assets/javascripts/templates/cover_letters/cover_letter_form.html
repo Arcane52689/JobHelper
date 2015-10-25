@@ -3,19 +3,11 @@
 
   <company-search></company-search>
 
-
+  <br>
   <profile-select></profile-select>
-
-  <section class="blurb-select">
-    <div class="blurb-drop-down">
-      <div ng-click="form.toggle('blurbs')"> Select Blurb {{ form.selected.blurb.get('title') }}</div>
-      <ul class="blurb-dropdown" ng-show="form.selecting.blurbs">
-        <li ng-repeat="blurb in form.blurbs.all()" ng-click="form.selectBlurb(blurb.id)">
-          {{ blurb.get('title' )}}
-        </li>
-      </ul>
-    </div>
-  </section>
+<br>
+  <blurb-select></blurb-select>
+<br>
 </div>
 <button class="preview" ng-click="form.updatePreview()">Preview</button>
 <button class="reset" ng-click="form.reset()">Reset</button>

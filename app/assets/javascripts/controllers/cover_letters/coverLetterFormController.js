@@ -9,7 +9,7 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
     this.blurbs = Collections.Blurbs;
     this.blurbs.fetch();
     this.selected = Selected.data;
-    
+
     this.selecting = {
       'profiles': false,
       'blurbs': false
@@ -42,26 +42,7 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
 
 
 
-  this.toggle = function(key) {
-    this.selecting[key] = true;
-  }
 
-  this.selectProfile = function(id) {
-    this.selected.profile = this.profiles.find(id);
-    this.selecting.profiles = false;
-  }
-
-  this.selectBlurb = function(id) {
-    //need to combine these and add a confirmation that this will reset the text
-    this.selected.blurb = this.blurbs.find(id);
-    this.selecting.blurbs = false;
-  }
-
-  this.stopSelecting = function() {
-    this.selecting.profiles = false;
-    this.selecting.companies = false;
-    this.selecting.blurbs = false;
-  }
 
   this.allSelected = function() {
     return ((this.selected.blurb && this.selected.profile) && this.selected.company)

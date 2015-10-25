@@ -24,6 +24,19 @@
   width: 200px;
 }
 
+.selection {
+  background: #a00;
+  color: #fff;
+  border: 5px solid #ddd;
+  padding: 10px;
+}
+
+.company-search > label {
+  display: block;
+  width: 200px;
+  margin: auto;
+}
+
 .search-box {
   width: 200px;
   border-left: 1px solid #aaa;
@@ -34,9 +47,13 @@
 
 .search-bar {
   width: 190px;
-
+  color: black;
 }
 
+.search-suggestion-box {
+  position: absolute;
+  background: #a00;
+}
 
 .search-suggestion {
   display: block;
@@ -50,15 +67,37 @@
   background: rgb(40,100,220);
 }
 
+
+
 .select-item {
   border-bottom: 1px solid #aaa;
 }
 .select-item:hover {
   background: rgb(40,100,220);
-  
+
 }
 
 .selected-item {
   background: rgb(40,100,220);
   color: #fff;
+}
+
+
+.select-dropdown {
+  width: 200px;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-top: 1px solid #eee;
+
+  position: absolute;
+  background: #900;
+}
+
+.select-name {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left:20px;
+  min-width: 100px;
+
 }

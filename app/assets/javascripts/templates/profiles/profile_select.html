@@ -1,12 +1,14 @@
-<section class="profile-select">
+<section class="profile-select selection">
   <div class="profile-drop-down">
-    <div class="selected-profile" ng-click="select.toggle()"> Select Profile {{ select.selected.profile.get('name') }}</div>
-    <ul class="profile-dropdown" ng-show="select.selecting">
-      <li ng-repeat="profile in select.profiles.all()" ng-click="select.selectProfile(profile.id)"
-      ng-class="select.checkClass(profile.id)"
+    <div class="selected-profile" ng-click="profileSelect.toggle()"> Select Profile {{ profileSelect.selected.profile.get('name') }}</div>
+    <ul class="select-dropdown" ng-show="profileSelect.selecting">
+      <li ng-repeat="profile in profileSelect.profiles.all()" ng-click="profileSelect.selectProfile(profile.id)"
+      ng-class="profileSelect.checkClass(profile.id)"
       class="select-item"
       >
+        <label class="select-name">
         {{ profile.get('name' )}}
+      </label>
       </li>
     </ul>
   </div>
