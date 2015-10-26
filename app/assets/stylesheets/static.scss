@@ -18,15 +18,15 @@
   padding: 10px;
 }
 
-.header .links {
+.nav-links {
   float: right
 }
 
-.links > li {
+.nav-link{
   float: left;
 }
 
-.links > li >a {
+.nav-link >a {
   display: block;
   padding: 10px 10px;
   border-left: 1px solid white;
