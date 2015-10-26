@@ -15,13 +15,11 @@ angular.module('AppTrackerControllers').controller('ProfileSelectCtrl', ['Collec
     }
   }
 
-  this.toggle = function(key) {
+  this.toggle = function() {
     this.selecting = true;
-
   }
 
   this.selectProfile = function(id) {
-
     this.selected.profile = this.profiles.find(id);
     this.selecting = false;
   }

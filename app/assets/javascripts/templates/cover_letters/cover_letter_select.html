@@ -1,0 +1,21 @@
+<section class="cover-letter-select selection">
+  <div class="cover-letter-drop-down">
+    <div
+    class="selected-cover-letter"
+    ng-click="coverLetterSelect.toggle()">
+    Selected Cover Letter: <br>
+     {{ coverLetterSelect.selected.coverLetter.get('title') }}
+    </div>
+    <ul class="select-dropdown" ng-show="coverLetterSelect.selecting">
+
+      <li
+        ng-repeat="coverLetter in coverLetterSelect.coverLetters.all()"
+        ng-click="coverLetterSelect.selectCoverLetter(coverLetter.id)"
+        ng-class="coverLetterSelect.checkClass(coverLetter.id)"
+        class="select-item"
+      >
+      {{ coverLetter.get('title') }}
+      </li>
+    </ul>
+  </div>
+</section>

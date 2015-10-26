@@ -1,1 +1,27 @@
-Application Form
+<h1> Application Form </h1>
+
+<section class="group selections">
+  <company-search></company-search>
+  <cover-letter-select></cover-letter-select>
+  <div class="selection">
+    <label> Status:
+      <select
+        ng-model="form.application.attributes.status">
+        <option ng-repeat="status in form.statuses"
+          value="{{status}}">
+          {{ status }}
+        </option>
+      </select>
+    </label>
+  </div>
+<br>
+  <form ng-submit="form.submit()">
+
+    <label>
+      Job_Url: <input type="text" name="application[job_url]" ng-model="form.application.attributes.job_url">
+    </label>
+    <br>
+    <button>Submit</button>
+  </form>
+
+</section>

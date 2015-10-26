@@ -59,4 +59,11 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: "CoverLettersCtrl",
     controllerAs: 'index'
   })
+  .when('/applications/new', {
+    templateUrl: 'applications/application_form.html',
+    controller: 'ApplicationFormCtrl',
+    controllerAs: 'form'
+  })
+
+
 }])
