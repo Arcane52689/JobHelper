@@ -24,7 +24,7 @@ angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collec
 
   this.selectCompany = function(id) {
     this.selected.company = this.companies.find(id);
-    this.name = this.selected.company.get('name');
+    this.name = '';
     this.selecting = false;
 
   }

@@ -1,6 +1,6 @@
 <section class="blurb-select selection">
   <div class="blurb-dropdown">
-    <div ng-click="blurbSelect.toggle()"> Select Blurb: {{ blurbSelect.selected.blurb.get('title') }}</div>
+    <div ng-click="blurbSelect.toggle()"> Selected Blurb: {{ blurbSelect.selected.blurb.get('title') }}</div>
     <ul class="select-dropdown" ng-show="blurbSelect.selecting">
       <li ng-repeat="blurb in blurbSelect.blurbs.all()" ng-click="blurbSelect.selectBlurb(blurb.id)"
       ng-class="blurbSelect.checkClass(blurb.id)"

@@ -1,6 +1,6 @@
 <section class="profile-select selection">
   <div class="profile-drop-down">
-    <div class="selected-profile" ng-click="profileSelect.toggle()"> Select Profile {{ profileSelect.selected.profile.get('name') }}</div>
+    <div class="selected-profile" ng-click="profileSelect.toggle()"> Selected Profile: {{ profileSelect.selected.profile.get('name') }}</div>
     <ul class="select-dropdown" ng-show="profileSelect.selecting">
       <li ng-repeat="profile in profileSelect.profiles.all()" ng-click="profileSelect.selectProfile(profile.id)"
       ng-class="profileSelect.checkClass(profile.id)"

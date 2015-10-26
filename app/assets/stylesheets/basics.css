@@ -24,17 +24,30 @@
   width: 200px;
 }
 
-.selection {
-  background: #a00;
+.selections {
   color: #fff;
+  background: #a00;
+  padding: 20px;
+
+}
+
+.selection {
   border: 5px solid #ddd;
   padding: 10px;
+  width: 200px;
+  height: 100px;
+  margin: 10px 20px;
+  float: left;
 }
 
 .company-search > label {
   display: block;
   width: 200px;
   margin: auto;
+}
+
+.company-search-name {
+  text-align: center;
 }
 
 .search-box {

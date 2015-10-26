@@ -6,7 +6,7 @@ angular.module('AppTrackerControllers').controller('BlurbSelectCtrl', ['Collecti
   }
 
   this.checkClass = function(id) {
-    if (this.selected.profile && (this.selected.profile.id === id)) {
+    if (this.selected.blurb && (this.selected.blurb.id === id)) {
       return "selected-item"
     } else {
       return ""
