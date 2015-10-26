@@ -14,5 +14,10 @@ class Application < ActiveRecord::Base
     end
   end
 
+  def company_name
+    self.company.name
+  end
+  
+
 
 end

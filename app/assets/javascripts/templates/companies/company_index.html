@@ -8,10 +8,7 @@
   <button ng-click="index.no()">No</button>
 </div>
 <ul class="company-list">
-  <li ng-repeat="company in index.shown">
-    <ul class="company">
-      <li class="item company-name"><a class="linked" href="#/companies/{{company.id}}">{{company.get('name')}}</a></li>
-    </ul>
+  <li ng-repeat="company in index.shown" class="item company-name"><a class="linked" href="#/companies/{{company.id}}">{{company.get('name')}}</a></li>
 
 
   </li>

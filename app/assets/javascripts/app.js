@@ -39,6 +39,11 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'BlurbFormCtrl',
     controllerAs: 'form'
   })
+  .when('/cover_letters', {
+    templateUrl: 'cover_letters/cover_letter_index.html',
+    controller: 'CoverLettersCtrl',
+    controllerAs: 'index'
+  })
   .when('/cover_letters/new', {
     templateUrl: 'cover_letters/cover_letter_form.html',
     controller: 'CoverLetterFormCtrl',
@@ -49,11 +54,7 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     controller: 'CoverLetterFormCtrl',
     controllerAs: 'form'
   })
-  .when('/cover_letters/', {
-    templateUrl: 'cover_letters/cover_letter_index.html',
-    controller: 'CoverLettersCtrl',
-    controllerAs: 'index'
-  })
+
   .when('/cover_letters/:id', {
     templateUrl: 'cover_letters/cover_letter_index.html',
     controller: "CoverLettersCtrl",
@@ -63,6 +64,11 @@ AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider
     templateUrl: 'applications/application_form.html',
     controller: 'ApplicationFormCtrl',
     controllerAs: 'form'
+  })
+  .when('/applications/', {
+    templateUrl: 'applications/applications_index.html',
+    controller: 'ApplicationsIndexCtrl',
+    controllerAs: 'index'
   })
 
 

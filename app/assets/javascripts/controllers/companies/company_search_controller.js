@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collections', 'Selected', function(Collections, Selected) {
+angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collections', 'Selected', 'Company', function(Collections, Selected, Company) {
   this.setUp = function() {
     this.companies = Collections.Companies;
     this.companies.fetch();
@@ -27,6 +27,16 @@ angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collec
     this.name = '';
     this.selecting = false;
 
+  }
+
+  this.createCompany = function() {
+    var company = new Company({name: this.name});
+    company.save({
+      success: function(resp) {
+        this.companies.add(company);
+        this.selected.company = company;
+      }.bind(this)
+    })
   }
 
   this.setUp();

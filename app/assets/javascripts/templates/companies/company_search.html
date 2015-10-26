@@ -1,7 +1,17 @@
 <section class="company-search selection">
   <label class="company-search-name">Company Name: <br> {{ search.selected.company.get('name')}}</label>
-  <ul class="search-box select-item">
-    <li><input type="text" ng-model="search.name" ng-change="search.filterCompanies()" class="search-bar"> </li>
+  <ul class="search-box ">
+    <li>
+      <form ng-submit="search.createCompany()">
+      <input type="text"
+      ng-model="search.name"
+      ng-change="search.filterCompanies()"
+      class="search-bar"
+      >
+      <button>Add</button>
+      </form>
+
+    </li>
     <ul class="search-suggestion-box">
 
       <li ng-show="search.selecting"

@@ -23,7 +23,7 @@ class Api::ApplicationsController < ApplicationController
   end
 
   def index
-    @applications = current_user.applications
+    @applications = current_user.applications.includes(:company)
   end
 
 

@@ -7,7 +7,7 @@
     <label> Status:
       <select
         ng-model="form.application.attributes.status">
-        <option ng-repeat="status in form.statuses"
+        <option ng-repeat="status in [ 'applied', 'rejected', 'phone-screened', 'on-site', 'offered', 'offer accepted']"
           value="{{status}}">
           {{ status }}
         </option>

@@ -1,13 +1,8 @@
 angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$location', '$routeParams', 'Application', 'Collections', 'Selected', function($location, $routeParams, Application, Collections, Selected) {
+
+
   this.setUp = function() {
-    this.statuses = [
-      'applied',
-      'rejected',
-      'phone-screened',
-      'on-site',
-      'offered',
-      'offer accepted'
-    ]
+
     this.selected = Selected.data;
     this.application = new Application();
     this.companies = Collections.Companies;
@@ -39,7 +34,15 @@ angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$lo
     if (this.selected.cover_letter) {
       this.application.set('cover_letter_id', this.selected.coverLetter.id);
     }
-    this.application.save();
+    this.application.save({
+      success: function() {
+        Collections.Applications.add(this.application)
+        this.application = new Application();
+        this.selected.company = undefined;
+        this.selected.cover_letter = undefined;
+
+      }.bind(this)
+    });
   }
 
 
