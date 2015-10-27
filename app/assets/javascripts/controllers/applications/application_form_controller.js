@@ -34,6 +34,7 @@ angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$lo
     if (this.selected.cover_letter) {
       this.application.set('cover_letter_id', this.selected.coverLetter.id);
     }
+    debugger
     this.application.save({
       success: function() {
         Collections.Applications.add(this.application)

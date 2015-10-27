@@ -82,3 +82,24 @@ button {
   padding: 5px;
   margin: 5px;
 }
+
+.application {
+  border-bottom: 1px solid #aaa;
+
+}
+
+.application-item {
+  float: left;
+  margin-left: 20px;
+  width: 100px;
+  padding: 5px;
+
+
+}
+
+.application-item > input {
+
+  width: 100px;
+  padding: 0;
+  border: 1px: solid black;
+}

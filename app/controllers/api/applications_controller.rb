@@ -3,7 +3,8 @@ class Api::ApplicationsController < ApplicationController
   def create
     @application = current_user.applications.new(application_params)
     if @application.save
-      render json: @applicaiton
+
+      render json: @application
     else
       render json: @application.errors.full_messages
     end
@@ -12,7 +13,7 @@ class Api::ApplicationsController < ApplicationController
   def update
     @application = current_user.applications.find(params[:id])
     if @application.update(application_params)
-      render json: @applicaiton
+      render json: @application
     else
       render json: @application.errors.full_messages
     end
@@ -30,7 +31,7 @@ class Api::ApplicationsController < ApplicationController
 
 
   def application_params
-    params.require(:application).permit(:company_id, :cover_letter_id, :job_url, :title)
+    params.require(:application).permit(:company_id, :cover_letter_id, :job_url, :title, :status, :job_title)
   end
 
 

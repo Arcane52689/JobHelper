@@ -33,7 +33,6 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
   }
 
   this.updatePage = function() {
-    debugger;
     this.results = this.displayedApplications.all().slice(this.currentIndex() + this.currentIndex + this.perPage);
   }
 

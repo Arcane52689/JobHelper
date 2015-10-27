@@ -13,7 +13,7 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
 
   BaseModel.prototype.updateAttributes = function(data) {
     data = data || {}
-    this.attributes = {};
+    this.attributes = this.attributes || {};
     for (key in data){
       if (data.hasOwnProperty) {
         this.attributes[key] = data[key];
@@ -61,6 +61,7 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
 
   BaseModel.prototype.update = function(options) {
     $http.put(this.url(), this.attributes).success(function(resp) {
+      debugger
       this.updateAttributes(resp);
       options.success && options.success(resp);
     }.bind(this)).error(function(resp, options) {

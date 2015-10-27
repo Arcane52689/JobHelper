@@ -1,0 +1,26 @@
+<ul class="group">
+  <li class="application-item">
+    {{ item.application.get('company_name') }}
+  </li>
+
+  <li class="application-item">
+    <input type="text" ng-model="item.application.attributes.job_title">
+  </li>
+
+  <li class="application-item">
+    <input ng-model="item.application.attributes.job_url" type="text">
+  </li>
+
+  <li class="application-item">
+    <select
+      ng-model="item.application.attributes.status"
+      ng-change="item.save()"
+      ng-options="status as status for status in [ 'applied', 'rejected', 'phone-screened', 'on-site', 'offered', 'offer accepted']"
+        >
+        {{ status }}
+      </option>
+    </select>
+    {{ item.application.get('status')}}
+  </li>
+
+</ul>

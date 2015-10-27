@@ -16,14 +16,11 @@
 <div class="app-collection">
   <input type="text"
     ng-model="index.searchName"
-    ng-change="index.updateResults()"> {{ index.results.length }}
+    ng-change="index.updateResults()">
   <ul class="applications">
     <li
       ng-repeat="app in index.results"
-      class="application-item"
+      class="application"
     >
-      {{app.get('company_name')}}
-
-    </li>
-  </ul>
+    <application-item application="app.id"> </application-item>
 </div>
