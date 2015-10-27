@@ -4,12 +4,8 @@ angular.module('AppTrackerControllers').controller('ApplicationItemCtrl', ['$sco
   }
 
   this.save = function() {
-    this.application.save( {
-      success: function() {
-        debugger;
-      }.bind(this)
-    });
-    debugger;
+    this.application.save();
+
   }
 
   this.setUp();

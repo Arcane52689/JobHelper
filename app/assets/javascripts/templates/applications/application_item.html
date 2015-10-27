@@ -17,10 +17,8 @@
       ng-change="item.save()"
       ng-options="status as status for status in [ 'applied', 'rejected', 'phone-screened', 'on-site', 'offered', 'offer accepted']"
         >
-        {{ status }}
-      </option>
     </select>
-    {{ item.application.get('status')}}
+
   </li>
 
 </ul>

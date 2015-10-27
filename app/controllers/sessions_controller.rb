@@ -8,13 +8,19 @@ class SessionsController < ApplicationController
   end
 
 
+  def demo
+    user = User.first
+    login!(user)
+    redirect_to root_url
+  end
+
   def destroy
     @session = Session.find_by(token:session[:session_token])
     @session.destroy!
     session[:session_token] = nil
     @current_user = nil
 
-    redirect_to root_url
+    render json: {redirect_url: root_url}
   end
 
 
