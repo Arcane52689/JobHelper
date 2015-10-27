@@ -1,0 +1,10 @@
+<div class="flash-box">
+  <ul>
+    <li ng-repeat="message in flash.flash.messages"
+      ng-class="message.getClass()"
+      >
+      {{ message.text }}
+
+    </li>
+  </ul>
+</div>

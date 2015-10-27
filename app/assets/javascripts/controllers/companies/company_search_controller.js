@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collections', 'Selected', 'Company', function(Collections, Selected, Company) {
+angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collections', 'Selected', 'Company', 'MyFlash', function(Collections, Selected, Company, MyFlash) {
   this.setUp = function() {
     this.companies = Collections.Companies;
     this.companies.fetch();
@@ -35,6 +35,7 @@ angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collec
       success: function(resp) {
         this.companies.add(company);
         this.selected.company = company;
+        MyFlash.success('Company successfully created')
       }.bind(this)
     })
   }
