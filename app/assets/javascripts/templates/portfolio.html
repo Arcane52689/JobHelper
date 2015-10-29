@@ -1,19 +1,23 @@
 
 
 
-<h2 class="title">Blurbs</h2> <button class="blurbs-button" ng-click="portfolio.toggle('blurbs')">{{ portfolio.isDisplayed('blurbs') ? 'Hide' : 'Show' }}</button>
+<h2 class="title">Blurbs</h2> <button class="hide-show"
+  ng-class="portfolio.hideOrShow('blurbs')"
+  ng-click="portfolio.toggle('blurbs')">{{ portfolio.isDisplayed('blurbs') ? 'Hide' : 'Show' }}</button>
 
-<section class="blurbs-container" ng-include="'blurbs/blurb_form.html'" ng-controller="BlurbFormCtrl as form" ng-show="portfolio.isDisplayed('blurbs')">
+<section class="blurbs-container container" ng-include="'blurbs/blurb_form.html'" ng-controller="BlurbFormCtrl as form" ng-show="portfolio.isDisplayed('blurbs')">
 
 </section>
 
 <br>
 <h2 class="title"> Profiles </h2>
-<button class="blurbs-button" ng-click="portfolio.toggle('profiles')">{{ portfolio.isDisplayed('profiles') ? 'Hide' : 'Show' }}</button>
+<button class="hide-show"
+  ng-class="portfolio.hideOrShow('profiles')"
+  ng-click="portfolio.toggle('profiles')">{{ portfolio.isDisplayed('profiles') ? 'Hide' : 'Show' }}</button>
 
 
 
-<section class="profiles-container" ng-show="portfolio.isDisplayed('profiles')">
+<section class="profiles-container container" ng-show="portfolio.isDisplayed('profiles')">
 <label for="">
   Select Profile:
  <select class="select profile-select" name="profile" ng-model="portfolio.profile" ng-options="profile as profile.get('name') for profile in portfolio.profiles.all()">

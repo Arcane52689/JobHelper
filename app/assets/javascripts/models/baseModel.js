@@ -11,6 +11,12 @@ angular.module('AppTrackerModels').factory( 'ModelFactory', ['$http',function($h
     this.updateAtrributes(data);
   }
 
+  BaseModel.parentOf =  function(child) {
+    var Surrogate = function() {};
+    Surrogate.prototype = this.prototype;
+    child.prototype  = new Surrogate();
+  }
+
   BaseModel.prototype.updateAttributes = function(data) {
     data = data || {}
     this.attributes = this.attributes || {};

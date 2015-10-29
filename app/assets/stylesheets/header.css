@@ -1,0 +1,58 @@
+.header {
+  background: #f00;
+  color: #fff;
+  font-size: 24px;
+}
+
+.header-nav {
+  width: 900px;
+  margin: auto;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.logo {
+  float: left;
+  border-right: 1px solid white;
+  display: block;
+  padding: 10px;
+}
+
+.nav-links {
+  float: right
+}
+
+.nav-link{
+  float: left;
+  position: relative;
+}
+
+.nav-link >a {
+  display: block;
+  padding: 10px 10px;
+  border-left: 1px solid white;
+}
+
+.nav-link:hover > .header-dropdown {
+  display: block;
+
+}
+
+.header-dropdown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background: red;
+}
+
+.header-dropdown:first-child li{
+  border-bottom: 1px solid #ccc;
+}
+
+.header-dropdown > li > a {
+  display: block;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+}

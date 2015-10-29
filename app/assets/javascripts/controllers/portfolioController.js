@@ -27,6 +27,10 @@ Controllers.controller('PortfolioCtrl', ['Collections', '$sce', 'Profile', funct
     return this.displayed[key]
   }
 
+  this.hideOrShow = function(key) {
+    return this.displayed[key] ? "hide" : "show"
+  }
+
   this.setUp();
 
 

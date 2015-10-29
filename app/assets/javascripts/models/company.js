@@ -6,8 +6,8 @@ AppTrackerModels.factory('Company', ['$http', 'ModelFactory', function($http, Mo
 
       this.updateAttributes(data);
     }
-    ModelFactory.inherits(Company, ModelFactory.BaseModel);
-
+    // ModelFactory.inherits(Company, ModelFactory.BaseModel);
+    ModelFactory.BaseModel.parentOf(Company);
     Company.prototype.url = function() {
       if (this.isNew()) {
         return "/api/companies";

@@ -1,16 +1,22 @@
-<h3>Blurbs!</h3>
 
 
-<ul class="blurb-container">
-  <li>
+<ul class="blurb-container group">
+  <li class="blurb-selector">
     <ul class="blurbs">
-      <li ng-class="form.checkClass('new')" ng-click="form.selectNew()"> New </li>
-      <li ng-repeat="blurb in form.blurbs.all()" ng-click="form.selectBlurb(blurb.id)" ng-class="form.checkClass(blurb.id)">
+      <li ng-class="form.checkClass('new')"
+        ng-click="form.selectNew()"
+        class="blurb-item"
+        > New </li>
+      <li ng-repeat="blurb in form.blurbs.all()"
+      ng-click="form.selectBlurb(blurb.id)"
+      ng-class="form.checkClass(blurb.id)"
+      class="blurb-item"
+      >
         {{blurb.get('title')}}
       </li>
     </ul>
   </li>
-  <li ng-show="form.selected">
+  <li class="blurb-form">
     <form ng-submit="form.save()">
       <ul class="blurb-form">
 
@@ -22,7 +28,7 @@
             <br>
             <textarea name="blurb[]" rows="8" cols="40" ng-model="form.selected.attributes.body"></textarea></li>
       </ul>
-      <button>{{ (form.selected.id) ? 'Update' : 'Create' }}</button>
+      <button class="submit">{{ (form.selected.id) ? 'Update' : 'Create' }}</button>
     </form>
   </li>
 

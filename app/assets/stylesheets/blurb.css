@@ -1,3 +1,75 @@
 .selected-blurb {
   background: rgba(40,40,150,.5);
 }
+
+
+.blurbs-container {
+  border: 5px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  background: #ddd;
+
+  margin: auto;
+}
+
+.blurb-container > li {
+  border: 1px solid black;
+  float: left;
+  height: 100%;
+  display: block;
+  margin-left: 30px;
+
+}
+
+.blurb-selector {
+  width: 150px;
+  background: white;
+
+}
+
+.blurbs :first-child {
+  padding-top: 5px;
+}
+
+.blurb-item {
+  padding-left:10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+
+.blurb-form {
+  width: 400px;
+}
+
+.blurb-form > li {
+  background: white;
+  padding: 5px;
+  margin: 10px;
+}
+
+.submit {
+  margin: auto;
+  width: 60px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  height: 60px;
+  border: 0;
+  display: block;
+}
+
+.hide-show {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  color: white;
+}
+
+.hide {
+  background: red;
+}
+
+.show {
+  background: green;
+}
