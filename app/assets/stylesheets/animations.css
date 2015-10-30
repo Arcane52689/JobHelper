@@ -11,31 +11,42 @@
   border: 0;
   height: 1px;
   padding: 0;
+  transition: all 0s;
+
+}
+
+.container.ng-hide-remove-active {
 
 
 }
 
-.container.ng-hide-add-active {
+.container.ng-hide-add {
+  transition: all 1s;
+
 }
+
+
 
 .container {
-  transition: all 1s;
   overflow: hidden;
-
+  transition: all .5s linear;
   height: 500px;
 }
 
 
 main {
+  width: 1000px;
   position: absolute;
-  left: 0;
+  left: 50%;
   transition: all .5s;
+  margin-left: -510px;
+  background: #eee;
 }
 
 
 
 .ng-enter{
-  left: 100%;
+  left: 200%;
 }
 .ng-leave-active {
   left: -100%;

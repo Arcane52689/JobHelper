@@ -11,8 +11,8 @@ Controllers.controller('PortfolioCtrl', ['Collections', '$sce', 'Profile', funct
 
 
     this.displayed = {
-      'blurbs': true,
-      'profiles': true
+      'blurbs': false,
+      'profiles': false
     }
 
   }

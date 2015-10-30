@@ -44,10 +44,11 @@
   z-index: 1;
   width: 100%;
   background: red;
+  border: 1px solid #eee;
 }
 
-.header-dropdown:first-child li{
-  border-bottom: 1px solid #ccc;
+.header-dropdown> li:first-child{
+  border-bottom: 1px solid #eee;
 }
 
 .header-dropdown > li > a {

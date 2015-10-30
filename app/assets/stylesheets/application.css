@@ -36,7 +36,9 @@ ul {
 
 
 body {
+  width: 100%;
   font-family: sans-serif;
+
 }
 
 .group:after {
@@ -71,10 +73,6 @@ textarea, input {
   color: black;
 }
 
-main {
-  width: 900px;
-  margin: auto;
-}
 
 button {
   border: 1px solid black;
