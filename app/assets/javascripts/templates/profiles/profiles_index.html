@@ -1,0 +1,32 @@
+
+<label for="">
+  Select Profile:
+ <select class="select profile-select" name="profile" ng-model="profiles.selected" ng-options="profile as profile.get('name') for profile in profiles.profiles.all()">
+</label>
+
+</select>
+
+<section class="links-container">
+
+<h4>My links</h4>
+<ul class="links group">
+  <li>
+    <strong> LinkedIn Profile:<br></strong>
+      <a href="{{ profiles.selected.get('linkedin') }}"> {{ profiles.selected.get('linkedin')}} </a>
+  </li>
+
+  <li>
+    <strong> Github Page: <br></strong>
+     <a href="{{ profiles.selected.get('github') }}"> {{ profiles.selected.get('github') }} </a>
+  </li>
+
+  <li>
+    <strong> Personal Site:<br></strong>
+      <a href="{{profiles.selected.personalSite}}"> {{ profiles.selected.get('personal_site') }}</a>
+  </li>
+</ul>
+</section>
+<h2 class="cover-letter-title"> Cover Letter Template </h2>
+<article class="cover-letter" ng-bind-html='profiles.selected.html'>
+
+</article>
