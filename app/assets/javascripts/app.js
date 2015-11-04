@@ -10,9 +10,9 @@ var AppTracker = angular.module("AppTracker", ['ngRoute', 'templates','AppTracke
 
 AppTracker.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider.when( '/', {
-    templateUrl: 'portfolio.html',
-    controller: 'PortfolioCtrl',
-    controllerAs: 'portfolio'
+    templateUrl: 'applications/applications_index.html',
+    controller: 'ApplicationsIndexCtrl',
+    controllerAs: 'index'
   })
   .when('/profiles/', {
     templateUrl: 'profiles/profiles_index.html',
