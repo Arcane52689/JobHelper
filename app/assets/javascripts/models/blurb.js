@@ -1,10 +1,10 @@
-angular.module('AppTrackerModels').factory('Blurb', ['$http', 'ModelFactory', function($http, ModelFactory) {
+angular.module('AppTrackerModels').factory('Blurb', ['$http', 'BaseModel', function($http, BaseModel) {
   function Blurb(data) {
     this.urlBase = "/api/blurbs"
     this.updateAttributes(data);
   }
 
-  ModelFactory.inherits(Blurb, ModelFactory.BaseModel);
+  BaseModel.parentOf(Blurb);
 
   return Blurb;
 

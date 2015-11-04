@@ -1,13 +1,13 @@
 var AppTrackerModels = angular.module('AppTrackerModels');
 
 
-AppTrackerModels.factory('Company', ['$http', 'ModelFactory', function($http, ModelFactory) {
+AppTrackerModels.factory('Company', ['$http', 'BaseModel', function($http, BaseModel) {
     function Company(data) {
 
       this.updateAttributes(data);
     }
     // ModelFactory.inherits(Company, ModelFactory.BaseModel);
-    ModelFactory.BaseModel.parentOf(Company);
+    BaseModel.parentOf(Company);
     Company.prototype.url = function() {
       if (this.isNew()) {
         return "/api/companies";

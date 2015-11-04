@@ -1,6 +1,6 @@
 var AppTrackerControllers = angular.module("AppTrackerControllers")
 
-AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'CollectionFactory','Company', function($http, CollectionFactory, Company) {
+AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'BaseCollection','Company', function($http, BaseCollection, Company) {
 
   this.updateDisplayedCompanies = function() {
     this.displayedCompanies = this.companies.where(function(model) {
@@ -60,7 +60,7 @@ AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'CollectionFactory',
       this.updatePage();
     }
   }
-  
+
 
 
   this.goToPage = function(page) {
@@ -104,7 +104,7 @@ AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'CollectionFactory',
   this.orderByAttribute = 'name';
   this.reverse = false;
 
-  this.companies = new CollectionFactory.BaseCollection({
+  this.companies = new BaseCollection({
     model: Company,
     url: 'api/companies',
     comparator: 'name'

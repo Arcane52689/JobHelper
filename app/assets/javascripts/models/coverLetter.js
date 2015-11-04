@@ -1,13 +1,13 @@
-angular.module('AppTrackerModels').factory('CoverLetter', ['ModelFactory', '$sce',  function(ModelFactory, $sce) {
+angular.module('AppTrackerModels').factory('CoverLetter', ['BaseModel', '$sce',  function(BaseModel, $sce) {
   var CoverLetter = function(data) {
     this.urlBase = '/api/cover_letters'
     this.updateAttributes(data);
   }
 
-  ModelFactory.inherits(CoverLetter, ModelFactory.BaseModel);
+  BaseModel.parentOf(CoverLetter);
 
   CoverLetter.prototype.updateAttributes = function(data) {
-    ModelFactory.BaseModel.prototype.updateAttributes.call(this, data)
+    BaseModel.prototype.updateAttributes.call(this, data)
     this.trustBody();
   }
 
