@@ -1,6 +1,6 @@
 var AppTrackerControllers = angular.module("AppTrackerControllers")
 
-AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'BaseCollection','Company', function($http, BaseCollection, Company) {
+AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'BaseCollection','Company', 'MyFlash', function($http, BaseCollection, Company, MyFlash) {
 
   this.updateDisplayedCompanies = function() {
     this.displayedCompanies = this.companies.where(function(model) {
@@ -27,11 +27,14 @@ AppTrackerControllers.controller("CompaniesCtrl", ['$http', 'BaseCollection','Co
     var newComp = new Company();
     newComp.set('name',this.searchName);
     newComp.save({success: function(resp) {
-
+      MyFlash.success(newComp.get('name') + ' has successfully been created')
       this.companies.add(newComp);
       this.searchName = "";
       this.updatePage();
-    }.bind(this)})
+    }.bind(this),
+  error: function(resp) {
+    MyFlash.error(resp.errors)
+  }})
   }
 
   this.pages = function() {

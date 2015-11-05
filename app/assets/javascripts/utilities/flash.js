@@ -29,9 +29,13 @@ angular.module('AppTrackerUtilities').factory('Flash' , ['FlashMessage', functio
     this.messageTimeOut = options.messageTimeOut || 5000;
   }
 
+  Flash.prototype.hasMessages = function() {
+    return (this.messages.length !== 0)
+  }
+
   Flash.prototype.removeMessage = function(id) {
     var index = this.findMessageIndex(id)
-    debugger
+
     if (index > -1) {
       this.messages.splice(index, 1);
     }
@@ -55,11 +59,23 @@ angular.module('AppTrackerUtilities').factory('Flash' , ['FlashMessage', functio
   }
 
   Flash.prototype.success = function(text) {
-    this.addMessage('success', text)
+    if (text.constructory === Array) {
+      for (var i = 0; i < text.length; i++) {
+        this.addMessage('success', text[i]);
+      }
+    } else {
+      this.addMessage('success', text)  
+    }
   }
 
   Flash.prototype.error = function(text) {
-    this.addMessage('error', text)
+    if (text.constructory === Array) {
+      for (var i = 0; i < text.length; i++) {
+        this.addMessage('error', text[i]);
+      }
+    } else {
+      this.addMessage('error', text)
+    }
   }
 
   Flash.prototype.messagesOfType = function(type) {

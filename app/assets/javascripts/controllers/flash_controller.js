@@ -2,4 +2,5 @@ angular.module('AppTrackerControllers').controller('FlashCtrl', ['MyFlash', func
   this.flash = MyFlash;
 
 
+
 }])

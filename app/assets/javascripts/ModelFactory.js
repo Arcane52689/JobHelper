@@ -70,7 +70,6 @@
 
     BaseModel.prototype.update = function(options) {
       $http.put(this.url(), this.attributes).success(function(resp) {
-        debugger
         this.updateAttributes(resp);
         options.success && options.success(resp);
       }.bind(this)).error(function(resp, options) {

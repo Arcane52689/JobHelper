@@ -35,8 +35,11 @@ angular.module('AppTrackerControllers').controller('CompanySearchCtrl', ['Collec
       success: function(resp) {
         this.companies.add(company);
         this.selected.company = company;
-        MyFlash.success('Company successfully created')
-      }.bind(this)
+        MyFlash.success(company.get('name') + 'successfully created')
+      }.bind(this), 
+      error: function(resp) {
+        MyFlash.error(resp.errors)
+      }
     })
   }
 

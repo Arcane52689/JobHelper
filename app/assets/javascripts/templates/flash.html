@@ -1,4 +1,4 @@
-<div class="flash-box">
+<div class="flash-box" ng-show="flash.flash.hasMessages()">
   <ul>
     <li ng-repeat="message in flash.flash.messages"
       ng-class="message.getClass()"

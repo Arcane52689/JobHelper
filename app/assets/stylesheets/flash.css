@@ -1,0 +1,29 @@
+.flash-box {
+  border: 1px solid black;
+  width: 400px;
+
+  margin: auto;
+
+}
+
+.flash-item {
+  border-bottom: 1px solid white;
+  padding: 5px 20px;
+}
+
+.flash-item:last-child {
+  border-bottom: none;
+}
+
+.flash-success {
+  color: rgb(10,100,10);
+  background: rgb(50,220,50);
+  border-color: rgb(10, 100, 10);
+}
+
+.flash-error {
+  color: rgb(150, 10, 10);
+  text-shadow: 0px 0px black;
+  background: rgb(220,100,100);
+  border-color: rgb(100, 10, 10)
+}
