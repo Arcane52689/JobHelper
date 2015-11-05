@@ -59,17 +59,17 @@ angular.module('AppTrackerUtilities').factory('Flash' , ['FlashMessage', functio
   }
 
   Flash.prototype.success = function(text) {
-    if (text.constructory === Array) {
+    if (text.constructor === Array) {
       for (var i = 0; i < text.length; i++) {
         this.addMessage('success', text[i]);
       }
     } else {
-      this.addMessage('success', text)  
+      this.addMessage('success', text)
     }
   }
 
   Flash.prototype.error = function(text) {
-    if (text.constructory === Array) {
+    if (text.constructor === Array) {
       for (var i = 0; i < text.length; i++) {
         this.addMessage('error', text[i]);
       }

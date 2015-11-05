@@ -6,7 +6,7 @@ class Api::ApplicationsController < ApplicationController
 
       render json: @application
     else
-      render json: @application.errors.full_messages
+      render json: {errors:  @application.errors.full_messages}, status:422
     end
   end
 
@@ -15,7 +15,7 @@ class Api::ApplicationsController < ApplicationController
     if @application.update(application_params)
       render json: @application
     else
-      render json: @application.errors.full_messages
+      render json: {errors:  @application.errors.full_messages}, status:422
     end
   end
 

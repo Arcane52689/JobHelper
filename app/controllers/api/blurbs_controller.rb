@@ -1,6 +1,7 @@
 class Api::BlurbsController < ApplicationController
 
   def create
+
     @blurb = current_user.blurbs.new(blurb_params)
     if @blurb.save
       render json: @blurb
@@ -29,6 +30,7 @@ class Api::BlurbsController < ApplicationController
 
 
   def blurb_params
+    return {} unless params[:blurb].length > 0
     params.require(:blurb).permit(:title, :body)
   end
 

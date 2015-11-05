@@ -13,7 +13,8 @@ class Api::CoverLettersController < ApplicationController
     if @letter.save
       render json: @letter
     else
-      render json: @letter.errors.full_messages, status: 422
+      render json: {errors:  @letter.errors.full_messages}, status:422
+
     end
   end
 
@@ -22,7 +23,8 @@ class Api::CoverLettersController < ApplicationController
     if @leter.update(cover_letter_params)
       render json: @letter
     else
-      render json: @letter.errors.full_messages
+      render json: {errors:  @letter.errors.full_messages}, status:422
+
     end
   end
 

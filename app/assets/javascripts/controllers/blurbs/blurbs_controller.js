@@ -1,4 +1,4 @@
-angular.module("AppTrackerControllers").controller('BlurbFormCtrl', ['$http','Blurb', 'Collections', function($http, Blurb, Collections) {
+angular.module("AppTrackerControllers").controller('BlurbFormCtrl', ['$http','Blurb', 'Collections', 'MyFlash', function($http, Blurb, Collections, MyFlash) {
   this.setUp = function() {
     this.blurbs = Collections.Blurbs
     this.blurbs.fetch();
@@ -29,10 +29,18 @@ angular.module("AppTrackerControllers").controller('BlurbFormCtrl', ['$http','Bl
     var isNew = this.selected.isNew();
     this.selected.save({success: function(resp) {
       if (isNew) {
+        MyFlash.success("Blurb successfully created");
         this.blurbs.add(this.selected);
         this.newBlurb = new Blurb({});
+      } else {
+        MyFlash.success("Blurb successfully updated");
       }
-    }.bind(this)});
+    }.bind(this),
+    error: function(resp) {
+      debugger
+      MyFlash.error(resp.errors)
+    }
+  });
   }
 
 

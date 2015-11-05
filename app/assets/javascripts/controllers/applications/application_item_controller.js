@@ -4,7 +4,14 @@ angular.module('AppTrackerControllers').controller('ApplicationItemCtrl', ['$sco
   }
 
   this.save = function() {
-    this.application.save();
+    this.application.save({
+      success: function(resp) {
+        MyFlash.success('Application succesfully updated')
+      },
+      error: function(resp) {
+        MyFlash.error(resp.errors);
+      }
+    });
 
   }
 

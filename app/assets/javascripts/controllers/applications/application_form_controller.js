@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$location', '$routeParams', 'Application', 'Collections', 'Selected', function($location, $routeParams, Application, Collections, Selected) {
+angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$location', '$routeParams', 'Application', 'Collections', 'Selected', 'MyFlash', function($location, $routeParams, Application, Collections, Selected, MyFlash) {
 
 
   this.setUp = function() {
@@ -38,11 +38,14 @@ angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$lo
     this.application.save({
       success: function() {
         Collections.Applications.add(this.application)
+        MyFlash.success("Application for " + this.selected.company.get('name') + ' successfully created')
         this.application = new Application();
         this.selected.company = undefined;
         this.selected.cover_letter = undefined;
-
-      }.bind(this)
+      }.bind(this),
+      error: function(resp) {
+        MyFlash.error(resp.errors);
+      }
     });
   }
 
