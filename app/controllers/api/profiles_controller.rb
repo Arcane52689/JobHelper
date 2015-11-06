@@ -13,7 +13,7 @@ class Api::ProfilesController < ApplicationController
     if @profile.save
       render json: @profile, status: 200
     else
-      render json: {errors: @profile.errors.full_messages}
+      render json: {errors: @profile.errors.full_messages}, status:422
     end
   end
 
@@ -24,7 +24,7 @@ class Api::ProfilesController < ApplicationController
     if @profile.update(profile_params)
       render json: @profile, status: 200
     else
-      render json: {errors: profile.errors.full_messages }
+      render json: {errors: profile.errors.full_messages }, status:422
     end
 
   end

@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce', 'CoverLetter', 'Collections', '$routeParams', '$location', 'Selected', function($sce, CoverLetter, Collections, $routeParams, $location, Selected) {
+angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce', 'CoverLetter', 'Collections', '$routeParams', '$location', 'Selected', 'MyFlash', function($sce, CoverLetter, Collections, $routeParams, $location, Selected, MyFlash) {
   this.setUp = function() {
     this.date = new Date();
 
@@ -88,7 +88,11 @@ angular.module('AppTrackerControllers').controller('CoverLetterFormCtrl', ['$sce
     this.coverLetter.save({
       success: function(resp) {
         $location.path("/cover_letters/"+this.coverLetter.id);
-      }.bind(this)
+        MyFlash.success("Cover letter has successfully been saved")
+      }.bind(this),
+      error: function(resp) {
+        MyFlash.error(resp.errors);
+      }
     });
   }
 
