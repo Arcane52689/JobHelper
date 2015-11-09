@@ -1,4 +1,4 @@
-<h1> Hello </h1>
+<h1> Cover Letters </h1>
 
 <label for="">Select Cover Letter:
   <select class="select cover-letter-select"
@@ -6,6 +6,14 @@
   ng-options="coverLetter as coverLetter.get('title') for coverLetter in index.coverLetters.all()" >
   </select>
 </label>
+
+<button ng-click="index.generatePDF()" ng-hide="index.coverLetter.get('download_url')">
+  Generate PDF
+</button>
+
+<a ng-show="index.coverLetter.get('download_url')" href="{{index.coverLetter.get('download_url')}}" class="link-button download-pdf" download> Download </a>
+
+
 
 <article class="cover-letter" ng-bind-html="index.coverLetter.html">
 

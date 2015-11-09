@@ -18,5 +18,10 @@ class CoverLetter < ActiveRecord::Base
     end
   end
 
+  def download_url
+
+    return document.url if document.exists?
+    return nil
+  end
 
 end

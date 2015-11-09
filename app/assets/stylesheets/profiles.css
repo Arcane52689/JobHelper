@@ -118,4 +118,6 @@
 .cover-letter {
   background: white;
   padding: 100px 50px;
+  border: 1px solid black;
+  border-radius: 10px;
 }

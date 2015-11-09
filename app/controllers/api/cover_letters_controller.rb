@@ -39,7 +39,6 @@ class Api::CoverLettersController < ApplicationController
     @letter = current_user.cover_letters.find(params[:id])
 
 
-
     if @letter && @letter.body
       client =   client = Pdfcrowd::Client.new("arcane52689", ENV["PDF_CROWD"])
       set_pdf_params(client)
@@ -52,11 +51,15 @@ class Api::CoverLettersController < ApplicationController
       @letter.document = file
       file.close
       @letter.save
+      render :show, status: 200
+
     else
-
+      unless @letter
+        render json: { errors: "invalid id"}, status:422
+      else
+        render josn: { errors: "cover letter must have a body"}, status:422
+      end
     end
-    render :show
-
   end
 
 
