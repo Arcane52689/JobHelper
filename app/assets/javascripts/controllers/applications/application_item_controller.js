@@ -4,7 +4,7 @@ angular.module('AppTrackerControllers').controller('ApplicationItemCtrl', ['$sco
   }
 
   this.save = function() {
-    debugger
+    ;
     this.application.save({
       success: function(resp) {
         MyFlash.success('Application succesfully updated')

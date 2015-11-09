@@ -15,6 +15,8 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
 
     this.page = 1;
     this.perPage = 10;
+
+    this.displayedApplications = this.applications;
   }
 
   this.toggle = function() {
@@ -40,7 +42,8 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
   }
 
   this.updatePage = function() {
-    this.results = this.displayedApplications.all().slice(this.currentIndex() + this.currentIndex + this.perPage);
+    this.results = this.displayedApplications.all().slice(this.currentIndex(), this.currentIndex() + this.perPage);
+    ;
   }
 
   this.currentIndex = function() {
@@ -48,21 +51,29 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
   }
 
   this.pages = function() {
-    return Math.floor(this.dipslayedApplications.all().length / this.perPage) + 1
+    return Math.floor(this.displayedApplications.all().length / this.perPage) + 1
   }
 
   this.nextPage = function() {
-    if (page < this.pages()) {
+    if (this.page < this.pages()) {
       this.page += 1;
       this.updatePage();
     }
   }
 
   this.prevPage = function() {
-    if (page > 1) {
+    if (this.page > 1) {
       this.page -= 1;
       this.updatePage();
     }
+  }
+
+  this.hasPrev = function() {
+    return (this.page > 1)
+  }
+
+  this.hasNext = function() {
+    return (this.page < this.pages())
   }
 
   this.goToPage = function(page) {
@@ -73,6 +84,18 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
 
   }
 
+
+  this.nearPages = function() {
+    var min, max, result
+    min = (this.page < 3) ? 1 : this.page - 2;
+    max = (this.page > this.pages() - 2) ? this.pages() : this.page + 2;
+    result = [];
+    for (var i = min; i <= max; i++) {
+      result.push(i);
+    }
+    return result;
+
+  }
 
 
   this.setUp();

@@ -37,7 +37,7 @@ angular.module("AppTrackerControllers").controller('BlurbFormCtrl', ['$http','Bl
       }
     }.bind(this),
     error: function(resp) {
-      debugger
+      ;
       MyFlash.error(resp.errors)
     }
   });

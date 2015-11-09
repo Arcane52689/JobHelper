@@ -8,7 +8,7 @@ JobHelper.PopUps = {
 
   addCompany: function(options) {
     var company = new JobHelper.Models.Company({name: options.name});
-    debugger
+    ;
     var view = new JobHelper.Views.CompanyForm({
       model: company,
       modal: true,

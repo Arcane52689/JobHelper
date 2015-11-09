@@ -1,0 +1,12 @@
+
+<ul class="page-select">
+  <li class="page" ng-click="index.goToPage(1)" ng-class="(index.page === 1) ? 'invalid' : 'linked'">First</li>
+  <li class="page" ng-click="index.prevPage()" ng-class="(index.hasPrev()) ? 'linked' : 'invalid'">Prev</li>
+  <ul class="pages">
+    <li class="page" ng-repeat="page in index.nearPages()" ng-class="(page === index.page) ? 'selected' : 'linked'" ng-click="index.goToPage(page)">
+      {{page}}
+    </li>
+  </ul>
+  <li class="page" ng-click="index.nextPage()" ng-class="(index.hasNext()) ? 'linked' : 'invalid'">Next</li>
+  <li class="page" ng-click="index.goToPage(index.pages())" ng-class="(index.page === index.pages()) ? 'invalid' : 'linked'">Last</li>
+</ul>

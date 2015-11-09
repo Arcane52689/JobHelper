@@ -30,7 +30,7 @@ angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$lo
 
 
   this.submit = function() {
-    debugger
+    ;
     this.application.set('company_id', this.selected.company.id);
     if (this.selected.cover_letter) {
       this.application.set('cover_letter_id', this.selected.cover_letter.id);
@@ -43,7 +43,7 @@ angular.module('AppTrackerControllers').controller('ApplicationFormCtrl', [ '$lo
         this.application = new Application();
         this.selected.company = undefined;
         this.selected.cover_letter = undefined;
-        debugger;
+        ;;
       }.bind(this),
       error: function(resp) {
         MyFlash.error(resp.errors);
