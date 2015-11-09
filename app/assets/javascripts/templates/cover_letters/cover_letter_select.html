@@ -4,17 +4,17 @@
     class="selected-cover-letter"
     ng-click="coverLetterSelect.toggle()">
     Selected Cover Letter: <br>
-     {{ coverLetterSelect.selected.coverLetter.get('title') }}
+     {{ coverLetterSelect.selected.cover_letter.get('title') }}
     </div>
     <ul class="select-dropdown" ng-show="coverLetterSelect.selecting">
 
       <li
-        ng-repeat="coverLetter in coverLetterSelect.coverLetters.all()"
-        ng-click="coverLetterSelect.selectCoverLetter(coverLetter.id)"
-        ng-class="coverLetterSelect.checkClass(coverLetter.id)"
+        ng-repeat="cover_letter in coverLetterSelect.coverLetters.all()"
+        ng-click="coverLetterSelect.selectCoverLetter(cover_letter.id)"
+        ng-class="coverLetterSelect.checkClass(cover_letter.id)"
         class="select-item"
       >
-      {{ coverLetter.get('title') }}
+      {{ cover_letter.get('title') }}
       </li>
     </ul>
   </div>

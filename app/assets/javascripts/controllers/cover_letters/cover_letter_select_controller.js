@@ -19,7 +19,7 @@ angular.module('AppTrackerControllers').controller('CoverLetterSelectCtrl', ['Co
   }
 
   this.selectCoverLetter = function(id) {
-    this.selected.coverLetter = this.coverLetters.find(id);
+    this.selected.cover_letter = this.coverLetters.find(id);
     this.selecting = false;
   }
 

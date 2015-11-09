@@ -21,6 +21,13 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
     this.displayForm = this.displayForm ? false : true;
   }
 
+  this.checkHideOrShow = function() {
+    if (this.displayForm) {
+      return 'hide';
+    } else {
+      return 'show';
+    }
+  }
 
   this.updateResults = function() {
     var name = this.searchName.toLowerCase();

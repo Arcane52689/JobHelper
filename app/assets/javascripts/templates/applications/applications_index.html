@@ -1,23 +1,25 @@
-<h1>Applications</h1>
-<button class="hide-show"
-  ng-click="index.toggle()"
->
-{{ index.displayForm ? 'Finished Adding' : 'Add Applications'}}
-</button>
+<h1 class="title">Applications</h1>
 
-<div ng-show="index.displayForm"
-  ng-include="'applications/application_form.html'"
-  ng-controller"ApplicationFormCtrl as form"
-  >
-
-</div>
 
 
 <div class="app-collection">
-  <input type="text"
-    ng-model="index.searchName"
-    ng-change="index.updateResults()">
+  <section class="search">
+    Seach Applications:
+    <input type="text"
+      ng-model="index.searchName"
+      ng-change="index.updateResults()">
+  </section>
   <ul class="applications">
+    <li class="application">
+      <ul class="group">
+        <li class="application-item subtitle">Company Name</li>
+        <li class="application-item subtitle">Job url</li>
+        <li class="application-item subtitle">Job Title</li>
+        <li class="application-item subtitle">Application status</li>
+
+      </ul>
+    </li>
+
     <li
       ng-repeat="app in index.results"
       class="application"

@@ -1,27 +1,31 @@
 <h1> Application Form </h1>
 
 <section class="group selections">
-  <company-search></company-search>
-  <cover-letter-select></cover-letter-select>
-  <div class="selection">
-    <label> Status:
-      <select
-        ng-model="form.application.attributes.status">
-        <option ng-repeat="status in [ 'applied', 'rejected', 'phone-screened', 'on-site', 'offered', 'offer accepted']"
-          value="{{status}}">
-          {{ status }}
-        </option>
-      </select>
-    </label>
-  </div>
+  <ul class="group">
+    <li>  <company-search></company-search> </li>
+    <li> <cover-letter-select></cover-letter-select> </li>
+    <li>
+      <div class="selection">
+        <label> Status:
+          <select
+            ng-model="form.application.attributes.status">
+            <option ng-repeat="status in [ 'applied', 'rejected', 'phone-screened', 'on-site', 'offered', 'offer accepted']"
+              value="{{status}}">
+              {{ status }}
+            </option>
+          </select>
+        </label>
+      </div>
+    </li>
+  </ul>
+
+
 <br>
   <form ng-submit="form.submit()">
-
-    <label>
+    <label class="job_url">
       Job_Url: <input type="text" name="application[job_url]" ng-model="form.application.attributes.job_url">
     </label>
     <br>
-    <button ng-click="form.submit()">Submit</button>
+    <button class="submit">Submit</button>
   </form>
-
 </section>
