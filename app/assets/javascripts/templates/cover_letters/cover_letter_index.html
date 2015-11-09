@@ -7,7 +7,7 @@
   </select>
 </label>
 
-<button ng-click="index.generatePDF()" ng-hide="index.coverLetter.get('download_url')">
+<button ng-click="index.generatePDF()" ng-show="index.canGeneratePDF()">
   Generate PDF
 </button>
 

@@ -27,6 +27,17 @@ angular.module('AppTrackerControllers').controller('CoverLettersCtrl', [ '$route
     })
   }
 
+  this.canGeneratePDF = function() {
+    if (!this.coverLetter) {
+      return false;
+    }
+    if (this.coverLetter.get('download_url')) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
 
 
 
