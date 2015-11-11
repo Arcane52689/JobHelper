@@ -27,6 +27,10 @@ class Api::ApplicationsController < ApplicationController
     @applications = current_user.applications.includes(:company)
   end
 
+  def statistics
+    @stats = Application.statistics_for(current_user.id)
+    render json: @stats
+  end
 
 
 

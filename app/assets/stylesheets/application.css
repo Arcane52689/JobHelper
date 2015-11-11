@@ -124,3 +124,15 @@ button {
   color: white;
   background: green;
 }
+
+.chart {
+  width: 300px;
+  float: left;
+  margin: 10px;
+}
+.chart .subtitle {
+  font-weight: 700;
+  font-size: 20px;
+  text-decoration: underline;
+  text-align: center;
+}

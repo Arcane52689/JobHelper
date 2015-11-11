@@ -1,4 +1,4 @@
-angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Collections', 'Application', 'Company', function(Collections, Application, Company) {
+angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', [ '$http', 'Collections', 'Application', 'Company', function($http, Collections, Application, Company) {
   this.setUp = function() {
     this.applications = Collections.Applications;
     this.companies = Collections.Companies;
@@ -16,7 +16,11 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
     this.page = 1;
     this.perPage = 10;
 
+    this.colors = ['red','blue','green','yellow']
+
     this.displayedApplications = this.applications;
+
+
   }
 
   this.toggle = function() {
@@ -96,6 +100,10 @@ angular.module("AppTrackerControllers").controller('ApplicationsIndexCtrl', ['Co
     return result;
 
   }
+
+
+
+
 
 
   this.setUp();
