@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('CompanyFormCtrl',['$http','Company', '$routeParams', 'MyFlash', function($http, Company, $routeParams, MyFlash) {
+angular.module('AppTrackerControllers').controller('CompanyFormCtrl',['$http','Company', '$routeParams', 'MyFlash', 'Application', function($http, Company, $routeParams, MyFlash, Application) {
   if ($routeParams['id']){
     this.company = new Company({ id: $routeParams['id']});
     this.company.fetch();
@@ -21,6 +21,19 @@ angular.module('AppTrackerControllers').controller('CompanyFormCtrl',['$http','C
 
   this.beginEdit = function() {
     this.editing = true;
+  }
+
+  this.apply = function() {
+    var app = new Application({
+      company_id: this.company.id
+    });
+    var name = this.company.get('name');
+    app.save({success: function() {
+      MyFlash.success("application to " + name + " successfully created")
+    },
+      error: function(resp) {
+        MyFlash.error(resp.errors);
+      }})
   }
 
 }])

@@ -1,4 +1,4 @@
-angular.module('AppTrackerControllers').controller('ApplicationChartsCtrl', ['$http', function($http) {
+angular.module('AppTrackerControllers').controller('ApplicationChartsCtrl', ['$http', '$rootScope', function($http, $rootScope) {
   this.setUp = function() {
     $http.get('./api/applications/statistics').success(function(resp) {
       this.setUpStatistics(resp);
@@ -74,4 +74,5 @@ angular.module('AppTrackerControllers').controller('ApplicationChartsCtrl', ['$h
 
 
   this.setUp();
+  $rootScope.$on('updateEvent', this.setUp.bind(this));
 }])

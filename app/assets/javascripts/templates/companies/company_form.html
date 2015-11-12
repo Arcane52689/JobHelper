@@ -43,3 +43,4 @@
   <button ng-show="form.editing">update</button>
 </form>
 <button ng-click="form.beginEdit()" ng-hide="form.editing"> edit </button>
+<button ng-click="form.apply()" ng-hide="form.company.isNew()"> Apply to {{ form.company.get('name')}} </button>
